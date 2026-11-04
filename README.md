@@ -4,8 +4,6 @@
 
 Ghost Director connects photographic references, a navigable Three.js set and a synchronized Blender motion scene in one local web application. Meta image generation and hosted Meta SAM 3D provide original references and reference-derived geometry. Bounded reasoning roles assist planning and review; deterministic code owns scene revisions, validation, budgets and dispatch.
 
-Built for the **Meta Global AI Developer Hackathon, Indie developer track**. This is a working prototype and a source release—not a claim of production-ready digital humans, a completed hackathon submission or organizer endorsement. [Event and submission notes](docs/HACKATHON.md) · [Fresh experiment](docs/FRESH-EXPERIMENT.md) · [Architecture](docs/ARCHITECTURE.md)
-
 ## See the workspace
 
 [![Actual Ghost Director walkthrough: navigate the world, compare references, inspect Blender and review the production inputs](docs/media/workspace-preview.gif)](docs/media/workspace-walkthrough.mp4)
@@ -114,4 +112,4 @@ Most tests use deterministic fixtures or mocked providers; they do not spend mon
 
 ## License and release boundaries
 
-Original Ghost Director application code and original release documentation are **MIT licensed**. This repository contains no Studio OS private history, inherited prompt/persona library, model weights, API keys, production database or full generated-media bundle. Selected documentation media has a [provenance manifest](docs/media/manifest.json). Dependencies, external guidance and generated media have separate terms; inclusion does not grant a new asset license. [License](LICENSE) · [Provenance](docs/PROVENANCE.md) · [Local security boundary](SECURITY.md)
+Original Ghost Director application code and original release documentation are **MIT licensed**. Dependencies, external guidance and generated media have separate terms; inclusion does not grant a new asset license. [License](LICENSE) · [Provenance](docs/PROVENANCE.md) · [Local security boundary](SECURITY.md)
