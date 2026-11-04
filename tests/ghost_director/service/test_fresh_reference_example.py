@@ -1,12 +1,13 @@
 """Experiment isolation and spend authorization fail before provider access."""
 from argparse import Namespace
 import json
+from itertools import product
 from types import SimpleNamespace
 
 import pytest
 
 from ghost_director.jobs.store import ProductionStore
-from tools.new_reference_example import authorized, check_budget, command, execute, manifest_asset
+from tools.new_reference_example import approach_camera_keyframes, authorized, check_budget, command, execute, manifest_asset
 
 
 def test_paid_scope_requires_explicit_authorization_and_finite_cap():
@@ -99,3 +100,43 @@ async def test_stage_reports_real_command_lifecycle(tmp_path, fails):
     assert receipt["status"] == ("failed" if fails else "completed")
     assert receipt["operation"] == "render_motion"
     assert not store.snapshot()["jobs"]
+
+
+def projected_example_bounds(keyframes):
+    from ghost_director.blender.camera_math import project
+    # Dimensions measured in the actual fresh normalized GLBs. Canonical origins
+    # sit on the floor; Z therefore spans [0, height], not +/- height/2.
+    subjects = (
+        ((0, .45, 0), (.5542401075363159, .3620489239692688, 1.7200000286102295)),
+        ((.7, .2, 0), (.4163009226322174, .2731415927410126, .320000022649765)),
+    )
+    corners = [tuple(position[axis] + dimensions[axis] * offset[axis] for axis in range(3))
+        for position, dimensions in subjects for offset in product((-.5, .5), (-.5, .5), (0, 1))]
+    start, end = keyframes
+    pixels = []
+    # Independently interpolate every frame plus the endpoint: no production
+    # motion sampler or Blender render is used to grade this framing invariant.
+    for frame in range(12 * 24 + 1):
+        alpha = frame / (12 * 24)
+        camera = {"sensor_width_mm": 36,
+            "position": [a + (b - a) * alpha for a, b in zip(start["position"], end["position"])],
+            "target": [a + (b - a) * alpha for a, b in zip(start["target"], end["target"])],
+            "focal_length_mm": start["focal_length_mm"] + (end["focal_length_mm"] - start["focal_length_mm"]) * alpha}
+        pixels.extend(project(camera, corner, 640, 360) for corner in corners)
+    return min(x for x, _ in pixels), max(x for x, _ in pixels), min(y for _, y in pixels), max(y for _, y in pixels)
+
+
+def test_approach_keeps_character_and_floor_pitcher_inside_frame_with_margin():
+    keys = approach_camera_keyframes()
+    assert [key["time_seconds"] for key in keys] == [0, 12]
+    left, right, top, bottom = projected_example_bounds(keys)
+    assert 20 <= left <= right <= 620
+    assert 20 <= top <= bottom <= 340
+
+
+def test_previous_approach_reproduces_floor_pitcher_clipping():
+    previous = [
+        {"position": [2.5, -2.15, 1.6], "target": [0, .3, 1], "focal_length_mm": 28},
+        {"position": [1.8, -1.5, 1.5], "target": [0, .3, 1], "focal_length_mm": 28},
+    ]
+    assert projected_example_bounds(previous)[3] > 360

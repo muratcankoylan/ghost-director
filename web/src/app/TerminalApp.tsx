@@ -76,7 +76,8 @@ export function TerminalApp({ snapshot, connection, lastEventAt, onCommand, onRe
   const sceneHistory = useRef(new Map<string, SceneRevision>());
   const scene = snapshot?.scene ?? null;
   const shots = snapshot?.shots ?? [];
-  const activeShot = shots.find((shot) => shot.id === workspace.active_shot_id) ?? shots[0];
+  const defaultShot = shots.find((shot) => shot.scene_revision_id === scene?.id) ?? shots[0];
+  const activeShot = shots.find((shot) => shot.id === workspace.active_shot_id) ?? defaultShot;
   const referenceFirst = Boolean(activeShot?.motion || activeShot?.reference_pins?.length);
   const activeTake = snapshot?.takes?.find((take) => take.id === workspace.active_take_id) ?? snapshot?.takes?.filter((take) => take.shot_id === activeShot?.id).at(-1);
   const focus = inspectorTarget(workspace);
@@ -212,10 +213,10 @@ export function TerminalApp({ snapshot, connection, lastEventAt, onCommand, onRe
         }
       }
     }
-    dispatch({ type: 'bootstrap', shot_id: shots[0]?.id, take_id: snapshot?.takes?.filter((take) => take.shot_id === shots[0]?.id).at(-1)?.id, scene_revision_id: scene.id });
+    dispatch({ type: 'bootstrap', shot_id: defaultShot?.id, take_id: snapshot?.takes?.filter((take) => take.shot_id === defaultShot?.id).at(-1)?.id, scene_revision_id: scene.id });
     if (previousSceneId.current && workspace.viewed_scene_revision_id === previousSceneId.current) dispatch({ type: 'view_revision', id: scene.id });
     previousSceneId.current = scene.id;
-  }, [scene?.id, shots[0]?.id]);
+  }, [scene?.id, defaultShot?.id]);
 
   const submit = useCallback(async (operation: Command['operation'], payload: Record<string, unknown> = {}): Promise<boolean> => {
     const administrative = ['pause', 'resume', 'cancel_job', 'retire_unknown'].includes(operation);

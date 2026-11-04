@@ -13,6 +13,19 @@ function props(overrides: Partial<TerminalAppProps> = {}): TerminalAppProps {
 }
 
 describe('terminal command and navigation boundaries', () => {
+  it('starts on a shot for the current scene without overriding deliberate historical selection', () => {
+    const fixture = terminalFixture();
+    fixture.shots![0].scene_revision_id = 'scene-earlier';
+    fixture.shots![1].scene_revision_id = 'scene-earlier';
+    const input = props({ snapshot: fixture });
+    const view = render(<TerminalApp {...input} />);
+    expect(screen.getByRole('button', { name: /Shot 03: The response/ })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(screen.getByRole('button', { name: /Shot 01: The arrival/ }));
+    view.rerender(<TerminalApp {...input} snapshot={{ ...fixture, last_seq: 1 }} />);
+    expect(screen.getByRole('button', { name: /Shot 01: The arrival/ })).toHaveAttribute('aria-pressed', 'true');
+    expect(input.onCommand).not.toHaveBeenCalled();
+  });
+
   it('pin take A, select shot B, accept the explicitly displayed take A', async () => {
     const input = props();
     input.snapshot!.takes![0].scene_revision_id = 'scene-current';

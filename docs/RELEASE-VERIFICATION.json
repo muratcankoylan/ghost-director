@@ -1,14 +1,86 @@
 {
   "recorded_date": "2026-11-04",
   "environment": "Local macOS; separate standalone checkout and virtual environment",
-  "standalone_backend": {"command": "python -m pytest tests/ghost_director", "passed": 316, "skipped": 2, "skip_reason": "Optional integration tests require a separate Studio OS checkout", "warnings": ["Starlette test-client HTTPX deprecation"]},
-  "frontend": {"command": "npm --prefix web test", "passed": 114, "test_files": 13},
-  "web_build": {"command": "npm --prefix web run build", "result": "passed", "warnings": ["Three.js viewport chunk exceeds the Vite size advisory"]},
-  "blender_geometry": {"executable_version": "5.2.3", "checks": 30, "result": "passed", "scope": "East/west doors in authored and technical motion scenes"},
-  "clean_startup": {"bootstrap": "passed", "health_http": 200, "browser": "passed", "paid_calls_enabled": false, "checks": ["Procedural room rendered", "Empty reference registry displayed", "Blender workspace displayed actual empty task/output state", "Single WebGL canvas", "No browser console errors"]},
-  "publication_checks": {"configured_secret_equality": "no findings", "credential_patterns": "no findings", "markdown_relative_links": "passed"},
-  "source_checkout_backend": {"passed": 337},
-  "source_checkout_structural_validator": {"status": "known failures", "broken_links": 5, "scope": "Earlier private dining-room production artifacts absent locally; not shipped here", "registry": "synchronized"},
+  "standalone_backend": {
+    "command": "python -m pytest tests/ghost_director",
+    "passed": 318,
+    "skipped": 2,
+    "skip_reason": "Optional integration tests require a separate Studio OS checkout",
+    "warnings": [
+      "Starlette test-client HTTPX deprecation"
+    ]
+  },
+  "frontend": {
+    "command": "npm --prefix web test",
+    "passed": 121,
+    "test_files": 14
+  },
+  "web_build": {
+    "command": "npm --prefix web run build",
+    "result": "passed",
+    "warnings": [
+      "Three.js viewport chunk exceeds the Vite size advisory"
+    ]
+  },
+  "blender_geometry": {
+    "executable_version": "5.2.3",
+    "checks": 30,
+    "result": "passed",
+    "scope": "East/west doors in authored and technical motion scenes"
+  },
+  "clean_startup": {
+    "bootstrap": "passed",
+    "health_http": 200,
+    "browser": "passed",
+    "paid_calls_enabled": false,
+    "checks": [
+      "Procedural room rendered",
+      "Empty reference registry displayed",
+      "Blender workspace displayed actual empty task/output state",
+      "Single WebGL canvas",
+      "No browser console errors"
+    ]
+  },
+  "publication_checks": {
+    "configured_secret_equality": "no findings",
+    "credential_patterns": "no findings",
+    "markdown_relative_links": "passed"
+  },
+  "source_checkout_backend": {
+    "passed": 339
+  },
+  "source_checkout_structural_validator": {
+    "status": "known failures",
+    "broken_links": 5,
+    "scope": "Earlier private dining-room production artifacts absent locally; not shipped here",
+    "registry": "synchronized"
+  },
   "remote_ci": "See the repository Actions tab for independently recorded results.",
-  "live_media_evidence": "See FRESH-EXPERIMENT.md. Mocked tests and local startup do not establish provider availability or visual quality."
+  "live_media_evidence": "See FRESH-EXPERIMENT.md. Mocked tests and local startup do not establish provider availability or visual quality.",
+  "fresh_browser": {
+    "result": "passed",
+    "paid_calls_enabled": false,
+    "checks": [
+      "Both reviewed meshes placed and visible",
+      "Persisted comparison notes and location adaptation notes visible",
+      "Actual 12-second MP4 played",
+      "Blender scene download and receipt accessible",
+      "Five approved images and exact motion/prompt package visible",
+      "Current shot selected on reload"
+    ],
+    "generation_dispatched": false
+  },
+  "fresh_motion": {
+    "duration_seconds": 12,
+    "fps": 24,
+    "frame_count": 288,
+    "width": 640,
+    "height": 360,
+    "elapsed_seconds": 11.016,
+    "sampled_channel_error": 1.1920928955078125e-07,
+    "tolerance": 0.0001,
+    "sample_count": 3,
+    "framing_corner_projections": 4624,
+    "framing_margin_px": 20
+  }
 }

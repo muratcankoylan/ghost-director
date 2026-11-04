@@ -291,7 +291,7 @@
     },
     {
       "path": "tests/ghost_director/service/test_fresh_reference_example.py",
-      "sha256": "3c2339489e71684c9dab5a2e9142277d62f2bb9daac189ac6f7e8c5997bef9da"
+      "sha256": "6c7fc4f3e11276de51244358130462ddff6565596aac63a89438d09944d55c40"
     },
     {
       "path": "tests/ghost_director/service/test_identity_bindings.py",
@@ -347,7 +347,7 @@
     },
     {
       "path": "tools/new_reference_example.py",
-      "sha256": "e76603953554c62a0b7e09b2a25824058e8b0ddaa4d89474c4783b8368d200f7"
+      "sha256": "f821e7b8713ca5963e0d986211d888ff0c034b346ae549db666271e6fc5e0e82"
     },
     {
       "path": "uv.lock",
@@ -371,7 +371,7 @@
     },
     {
       "path": "web/src/app/TerminalApp.tsx",
-      "sha256": "94e13405bbb28eb9f9bb92a995a392fbdc7a49246645c02413db8417f51177b6"
+      "sha256": "8d03e2204207cf9709d3574835d227a890d644789556417e5e989606754f89de"
     },
     {
       "path": "web/src/app/styles.d.ts",
@@ -491,7 +491,7 @@
     },
     {
       "path": "web/src/viewport/SceneViewport.tsx",
-      "sha256": "9e13823438b8ed2d0c00e8b68f72c5352f2680a8ab43806be7a0f5af91a1ff78"
+      "sha256": "cb3997c38235a2f340a92b83efe7b38fd7f7defc1dbebe7c1a6ea2b7101df228"
     },
     {
       "path": "web/src/viewport/coordinates.test.ts",
@@ -500,6 +500,14 @@
     {
       "path": "web/src/viewport/coordinates.ts",
       "sha256": "ae41755c0f0b1133dbccad739bdfe62fd4b8df29340c5aa0985ba162abaf22eb"
+    },
+    {
+      "path": "web/src/viewport/framing.test.ts",
+      "sha256": "8e3f7834e10521f41684cc61750c90193a055297c727e00dde40250bb0434e30"
+    },
+    {
+      "path": "web/src/viewport/framing.ts",
+      "sha256": "7438ef5e72a3cfe308cf3fe1d854fcd49a719a1ee3d90c29a39012e329546b74"
     },
     {
       "path": "web/src/viewport/index.ts",
@@ -567,7 +575,7 @@
     },
     {
       "path": "web/tests/terminal/TerminalApp.test.tsx",
-      "sha256": "52a0a44ee98be98b47ea6b37ac47cb0300cf38da0016efa1ba522afcc94902fe"
+      "sha256": "2095a1b65b741c44071d709f43984faa4c9d2ed5c95cf097fe7c7e1e59389504"
     },
     {
       "path": "web/tests/terminal/fixtures.ts",

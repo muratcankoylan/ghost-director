@@ -12,6 +12,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import type { Camera, Entity } from '../api/contracts';
 import { entityMatrix, fittedFrame, toCanonicalPoint, toThreePoint, verticalFov } from './coordinates';
 import { canStandAt, findWalkSpawn } from './navigation';
+import { fitPerspectiveBounds } from './framing';
 import { applyMaterials, componentName, prepareMaterials, surfaceOf } from './materials';
 import { PreviewLights } from './lighting';
 import type { CameraDraft, SceneViewportProps } from './types';
@@ -224,15 +225,19 @@ export function SceneViewport(props: SceneViewportProps) {
       const entry = live.current.selectedEntityId ? entries.get(live.current.selectedEntityId) : undefined;
       if (!entry || entry.root.children.length === 0) return;
       const bounds = new Box3().setFromObject(entry.root);
-      const center = bounds.getCenter(new Vector3()); const size = bounds.getSize(new Vector3()).length();
-      const away = camera.position.clone().sub(orbit.target).normalize();
-      orbit.target.copy(center); camera.position.copy(center).addScaledVector(away, Math.max(.4, size * 1.35));
       if (currentMode !== 'orbit') {
         if (walk.isLocked) walk.unlock();
         currentMode = 'orbit'; orbit.enabled = true; keys.clear(); updateProjection();
         live.current.onModeChange('orbit');
       }
-      camera.lookAt(center); orbit.update(); emitDraft();
+      const fit = fitPerspectiveBounds(bounds, camera);
+      if (!fit) { setError('The selection cannot fit within the current camera clipping range.'); return; }
+      // Orbit limits are view controls, not saved camera metadata. Keep a valid
+      // fitted distance from being clamped on the next animation frame.
+      orbit.minDistance = Math.min(orbit.minDistance, fit.distance);
+      orbit.maxDistance = Math.max(orbit.maxDistance, fit.distance);
+      orbit.target.copy(fit.center); camera.position.copy(fit.position);
+      camera.lookAt(fit.center); orbit.update(); setError(null); emitDraft();
     }
     bridge.current = { synchronize, frameSelection };
     const resize = new ResizeObserver(() => {

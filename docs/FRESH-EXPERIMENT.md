@@ -1,6 +1,6 @@
 # The Conservator: fresh reference experiment
 
-Observed **November 3, 2026, 11:46 PM America/Toronto**. This is a dated experiment record, not a claim that the complete demonstration is finished. The existing Ghost Director application and other productions were preserved.
+Initial publication checkpoint: **November 3, 2026, 11:46 PM America/Toronto**. The sections through Known limits preserve that observation; the dated follow-up below records subsequent local work. The existing Ghost Director application and other productions were preserved.
 
 ## What was actually generated
 
@@ -64,3 +64,40 @@ The remaining local stages are `design`, `compose`, `motion` and `compile`. Each
 - No final film was generated in this experiment. The preparation UI and earlier provider integrations must not be presented as a finished movie from this fresh scene.
 
 See [reference-first requirements](SPECIFICATION.md), [implementation boundaries](ARCHITECTURE.md), and [release/provenance rules](PROVENANCE.md).
+
+## November 4 follow-up: planning review and placement
+
+Observed **November 4, 2026, 12:14 AM America/Toronto (05:14 UTC)**. This follow-up records actual local mesh placement, corrected Blender output and request compilation. Browser verification of this updated production is a separate check and was pending at this checkpoint.
+
+After the publication checkpoint, the host visually inspected both actual reconstructed meshes against their approved images. The command records identify `local-operator`; each note explicitly attributes the review to the **host test reviewer (Codex), not the user**, and limits acceptance to static wide-shot framing and blocking. This is planning acceptance, not certification of photographic identity or final-film appearance.
+
+| Asset | Recorded review | Placement and remaining limits |
+| --- | --- | --- |
+| Mara | Geometry and proportions match at planning scale; material, color and identity remain unknown | Placed at `(0, 0.45, 0)` m. Face detail is coarse and fingers are fused or insufficiently separated. Clothing appears darker under current warm lighting. Close-up likeness, hand detail, articulated acting and contact are not established. |
+| Cobalt pitcher | Geometry, proportions and recognizable object identity match at planning scale; material and color remain unknown | Placed at `(0.7, 0.2, 0)` m. The rounded body, opening, pouring lip and handle are present. Interior thickness, underside and hidden surfaces remain unverified; calibrated ceramic/color fidelity, pouring and hand contact are not claimed. |
+
+The accepted review records are `reconstruction-review-499bd8dec4b94a23` and `reconstruction-review-4d26c3ae76d64a05`. Each placed entity retains the exact review, normalized mesh hash and approved reference-version binding. The photographs remain the appearance source; acceptance does not replace them with reconstructed geometry.
+
+The location binding now carries typed adaptation notes visible in **Compare location in world**. The authored room is 6 × 5 × 3.2 m, with one north-wall window left of centre and an east-wall door. Its dimensions are estimates. Plaster grain, limestone slab seams, precise window recess/mullions, exterior foliage and the photographed sunlight remain unmatched. This is local reference-guided architecture, not AI room reconstruction.
+
+The first local 12-second Blender motion render and compiled request exposed a real framing problem: the floor-level pitcher was cropped in the inspected first, middle and last frames. That attempt remains recorded under `prior_attempts`, with its discrepancy; it is not represented as a successful composition. Before rerendering, the revised camera path passed 4,624 actor/prop bounding-box corner projections over 289 sampled times with a 20-pixel image-edge margin. Combined bounds were approximately x=261.83–400.73 and y=25.61–317.54 in a 640 × 360 image. This geometric check addresses clipping, not photographic fidelity or occlusion.
+
+The corrected render was then inspected at its start, midpoint and end. Both the actor and pitcher technical proxies are fully inside the frame in all three samples. The camera moves while the character and prop remain stationary; this is a blocking reference, not a photorealistic movie or articulated performance. No full-frame-by-frame appearance evaluation is claimed.
+
+| Corrected local evidence | Recorded result |
+| --- | --- |
+| Accepted scene / shared shot plan | `scene-fadbf7b20a754083` / `shot-6ecf56621ac74d8c` |
+| Motion record | `motion-aebba79e64a84220` |
+| Actual motion output | 12 seconds; 288 frames at 24 FPS; 640 × 360 H.264 MP4 |
+| Local Blender subprocess elapsed time | 11.016 seconds, including render and encoding |
+| Sampled Blender channel agreement | Maximum absolute error `1.1920928955078125e-7`, below `1e-4` tolerance, at 3 sampled times |
+| Motion MP4 / editable Blender scene | `art-5c06304c-d748-43b4-a106-0303d7c75b15` / `art-757345f6-44da-4ac4-bec5-ddc58e30d42c` |
+| Compiled request | `package-3f6d54831d6942e3` |
+
+The compiled request binds the same scene and shot to **five approved images** (three character views, the prop and the location), the corrected actual motion MP4 and the corresponding prompt. Its appearance-coverage validator reports zero missing-binding warnings. This verifies input coverage and lineage; it does not establish the fidelity of a generated movie. The request has been prepared locally, **not approved or dispatched**. Its recorded final-video estimate is approximately **$3.095**, with a **$3.714 reservation**; this is outside the experiment's $1 approval and is not a charge already incurred.
+
+These local review, placement, room and camera operations added no provider requests. The ledger still records five successful paid requests and **$0.07 estimated total**, with no final-video generation.
+
+### Browser verification after the follow-up
+
+The updated application was tested at `http://127.0.0.1:8006/` with paid calls disabled. Both placed meshes rendered in the saved set; character and prop comparisons displayed their persisted planning-only review notes, and the location comparison displayed the approved master, dimensions and remaining fidelity gaps. The Blender panel played the actual 12-second clip, served the `.blend` file and opened the matching validation receipt. Submission review loaded all five approved photographs, the same motion clip and the exact prompt; generation approval remained unchecked. Reload automatically selected the shot bound to the current scene and exposed its matching output. One WebGL canvas remained active, with no asset-load failures. This confirms accessible local workflow behavior, not final-film fidelity.

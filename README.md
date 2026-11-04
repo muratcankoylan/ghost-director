@@ -36,7 +36,7 @@ flowchart LR
 | Production review | Ordered original images, actual clay MP4, compiled prompt, coverage gaps and cost estimate | New paid dispatch requires approval of that exact package |
 | Runtime evidence | Provider jobs, outputs, role prompts, handoffs, revision history and replay | No simulated crew activity or fabricated progress |
 
-The fresh **Conservator** experiment generated three new photographs and two real SAM 3D meshes for an estimated **$0.07**. At this release checkpoint the meshes have not been accepted or placed, and no film has been generated for that scene. Generated media and private production databases are **not included** in this source repository. [Evidence and limitations](docs/FRESH-EXPERIMENT.md)
+The local **Conservator** experiment generated three new photographs and two real SAM 3D meshes for an estimated **$0.07**. The meshes are reviewed and placed for static wide-shot planning, with coarse facial/hand detail and unverified material fidelity explicitly recorded. The shared plan produced a real **12-second Blender motion clip** and a compiled package containing five approved images, that clip and the shot prompt. No final film has been generated. Generated media and private production databases are **not included** in this source repository. [Evidence and limitations](docs/FRESH-EXPERIMENT.md)
 
 ## Quick start
 

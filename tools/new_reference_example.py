@@ -28,6 +28,19 @@ from ghost_director.service import ProductionService
 
 TITLE = "The Conservator · fresh reference experiment"
 ACTOR = "host-test-reviewer"
+# A lower target and bounded approach retain the pitcher on the floor and the
+# complete character. Tuple values prevent accidental mutation between stages.
+APPROACH_CAMERA_PATH = (
+    (0, (2.8, -2.4, 1.6), (.25, .3, .7), 28),
+    (12, (2.5, -2.15, 1.6), (.25, .3, .7), 28),
+)
+
+
+def approach_camera_keyframes() -> list[dict]:
+    return [{"time_seconds": time, "position": list(position), "target": list(target), "focal_length_mm": lens}
+        for time, position, target, lens in APPROACH_CAMERA_PATH]
+
+
 DEFINITIONS = {
     "character": {
         "name": "Mara · conservator",
@@ -248,13 +261,13 @@ async def execute(args):
                 raise ValueError("Place reviewed fresh character/prop and bind the location before composing")
             if manifest["stages"].get("compose"):
                 raise ValueError("The experiment already has a shot; revise it in the application")
-            shot = await command(service, "save_shot", {"workflow": "reference-motion-v1", "name": "The Conservator · slow approach", "duration": 12,
-                "camera": {"position": [2.5, -2.15, 1.6], "target": [0, .3, 1], "focal_length_mm": 28},
+            camera_keys = approach_camera_keyframes()
+            shot = await command(service, "save_shot", {"workflow": "reference-motion-v1", "name": "The Conservator · slow approach", "duration": camera_keys[-1]["time_seconds"],
+                "camera": {key: value for key, value in camera_keys[0].items() if key != "time_seconds"},
                 "action": "One continuous slow camera approach in the approved studio. The conservator stands still beside the cobalt ceramic pitcher on the floor. Preserve the exact approved person, wardrobe, pitcher and architecture. No touching, extra objects or invented movement."})
             pins = [{"asset_id": entry["asset_id"], "revision_id": registry.asset(entry["asset_id"])["approved_revision_id"], "state": "default"} for entry in manifest["assets"].values()]
             revised = await command(service, "update_shot_plan", {"shot_id": shot["id"], "reference_pins": pins,
-                "motion": {"camera_keyframes": [{"time_seconds": 0, "position": [2.5, -2.15, 1.6], "target": [0, .3, 1], "focal_length_mm": 28},
-                    {"time_seconds": 12, "position": [1.8, -1.5, 1.5], "target": [0, .3, 1], "focal_length_mm": 28}], "tracks": []}})
+                "motion": {"camera_keyframes": camera_keys, "tracks": []}})
             manifest["stages"]["compose"] = {"completed_at": now_iso(), **revised}
         elif args.stage in {"motion", "compile"}:
             stage = manifest["stages"]["compose"]
