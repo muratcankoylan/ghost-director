@@ -113,3 +113,5 @@ Most tests use deterministic fixtures or mocked providers; they do not spend mon
 ## License and release boundaries
 
 Original Ghost Director application code and original release documentation are **MIT licensed**. Dependencies, external guidance and generated media have separate terms; inclusion does not grant a new asset license. [License](LICENSE) · [Provenance](docs/PROVENANCE.md) · [Local security boundary](SECURITY.md)
+
+Built by Muratcan Koylan (https://x.com/muratcan) and Ata Koylan (https://x.com/atakoylanai)
