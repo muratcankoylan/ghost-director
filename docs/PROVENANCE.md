@@ -18,7 +18,7 @@ The [visual tour](SHOWCASE.md) contains actual application captures made on Nove
 
 The [media manifest](media/manifest.json) records byte sizes, SHA-256 hashes, source identities and transformations. Screenshots and original reference PNGs are copied without visual modification. The real-time screen recording is transcoded to H.264 for browser playback; the README preview is accelerated 4.5× and reduced in size/frame rate. The two output MP4s preserve their original bytes. GIF previews are reduced-frame-rate derivatives, not new model results.
 
-The [standalone HTML report](showcase/index.html) uses relative files and no remote fonts, trackers, embeds or API keys. Clone/download and open it locally, or serve the `docs` directory with a local HTTP server. GitHub displays HTML source; the Markdown tour remains directly readable there. Media publication does not populate a new application installation or include the private production database.
+The [standalone HTML report](showcase/index.html) uses relative files and no remote fonts, trackers, embeds or API keys. GitHub Pages serves it at https://muratcankoylan.github.io/ghost-director/showcase/. It can also be opened from a clone/download, or the `docs` directory can be served with a local HTTP server. The Markdown tour remains directly readable on GitHub. Media publication does not populate a new application installation or include the private production database.
 
 ## What is excluded
 

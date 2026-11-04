@@ -21,7 +21,7 @@ These three new Meta-generated images are the appearance source for **The Conser
 | [![Conservator technical blocking and camera motion](docs/media/conservator-blender-preview.gif)](docs/media/conservator-blender-motion.mp4) | [![Earlier generated amber-bottle video](docs/media/earlier-bottle-preview.gif)](docs/media/earlier-bottle-film.mp4) |
 | **12 seconds.** Real clay render from the shared shot plan. Technical proxies define movement; the original photos define appearance. | **4.04 seconds.** Separate prop-only experiment using a Meta reference and Blender motion. A separate renderer produced the film. Take unaccepted; scene fidelity unverified. |
 
-**The Conservator has no final generated film.** The earlier bottle clip is separate evidence. [Inspect the comparisons, exact inputs and video limitations](docs/SHOWCASE.md). For a presentation with native video controls and chapter navigation, open `docs/showcase/index.html` from a clone/download; GitHub shows the HTML source. No API keys are required to view the report.
+**The Conservator has no final generated film.** The earlier bottle clip is separate evidence. [Inspect the comparisons, exact inputs and video limitations](docs/SHOWCASE.md). For a presentation with native video controls and chapter navigation, open the [hosted visual report](https://muratcankoylan.github.io/ghost-director/showcase/), served by GitHub Pages from `docs/`. No API keys are required to view the report.
 
 ## The production model
 
@@ -115,4 +115,5 @@ Most tests use deterministic fixtures or mocked providers; they do not spend mon
 Original Ghost Director application code and original release documentation are **MIT licensed**. Dependencies, external guidance and generated media have separate terms; inclusion does not grant a new asset license. [License](LICENSE) · [Provenance](docs/PROVENANCE.md) · [Local security boundary](SECURITY.md)
 
 Built by Muratcan Koylan (https://x.com/muratcan) and Ata Koylan (https://x.com/atakoylanai)
+
 Feel free to reach out for any questions and collaboration inquiries.

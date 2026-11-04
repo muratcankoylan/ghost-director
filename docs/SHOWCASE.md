@@ -6,7 +6,7 @@ These are captures of the working application and its actual outputs, recorded o
 
 The preview accelerates the full 65-second recording by **4.5×**. [Watch or download the original 65-second, silent MP4](media/workspace-walkthrough.mp4) for readable controls and real-time navigation. The recording inspects completed work; its duration is not the time required to generate images, reconstruct meshes or render a movie. No new generation is demonstrated by the accelerated playback.
 
-For embedded video players and a larger presentation, open the [standalone visual report](showcase/index.html). GitHub displays that HTML as source rather than running it. Clone or download this repository, keep `docs/showcase` and `docs/media` together, and open `docs/showcase/index.html` locally. The report needs no API keys or application server. To use the application itself, follow the [quick start](../README.md#quick-start).
+For embedded video players and a larger presentation, open the [hosted visual report](https://muratcankoylan.github.io/ghost-director/showcase/). GitHub Pages serves the same static `docs/showcase/index.html`; it needs no API keys or application server. To view it offline, clone or download this repository, keep `docs/showcase` and `docs/media` together, and open `docs/showcase/index.html` locally. To use the application itself, follow the [quick start](../README.md#quick-start).
 
 ## Recording chapters
 
