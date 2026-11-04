@@ -1,0 +1,593 @@
+{
+  "scope": "Original application files extracted without Studio OS Git history or inherited guidance. Packaging metadata, README, docs and LICENSE are authored separately. pyproject testpaths adjusted for standalone.",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "d06b862ef7c88ca41fbab7639ec2cb6378858df96f5ce25439287996d61cf5e5"
+    },
+    {
+      "path": "LICENSE-GHOST-DIRECTOR.md",
+      "sha256": "ff45c3bf01d8692df768249312b7b72d76ae555cb294c0321c93c8ea511f97e7"
+    },
+    {
+      "path": "contracts/ghost-director/schemas.json",
+      "sha256": "6d847f571ca5a1c4588b827b93c742b379ddcd2374eb754c4e298832a19ea6a5"
+    },
+    {
+      "path": "ghost_director/__init__.py",
+      "sha256": "b330e17c3b1b77eff9e8d15d8e911466425c23e5fc5017a9ca0fff56043a4b88"
+    },
+    {
+      "path": "ghost_director/api.py",
+      "sha256": "53b507c90ca02874bc2a870ddc203f3fbc8314567b6329c08c46ad8dfa9f7af5"
+    },
+    {
+      "path": "ghost_director/blender/README.md",
+      "sha256": "98853ee320a06d0451607f3a0dc1bd28b28909d9ba35ca09d9346c0fa154ff41"
+    },
+    {
+      "path": "ghost_director/blender/bootstrap_set.py",
+      "sha256": "45adcd30f001a27dd533998c68b0e570c713e6460e4606e99e7aebad0e72efb3"
+    },
+    {
+      "path": "ghost_director/blender/build_set.py",
+      "sha256": "108a8034cf41f6d52b5825a99dbb622d7471506e28ecc252eaad4a55ccc09c4a"
+    },
+    {
+      "path": "ghost_director/blender/camera_math.py",
+      "sha256": "b80d5789f917ae05b276ca1d697119c9fab42a6a122a15d423e842c73b89e030"
+    },
+    {
+      "path": "ghost_director/blender/design_room.py",
+      "sha256": "da6f71e09a1b01b2112526a83a156b834d67277cba8f6658d97f04e2f2e83173"
+    },
+    {
+      "path": "ghost_director/blender/inspect_asset.py",
+      "sha256": "71a305f3d0ab46b2cae02571b16d01b2e42eb38f2acba091c74fe3ef2818679d"
+    },
+    {
+      "path": "ghost_director/blender/inspect_scene.py",
+      "sha256": "c7d62b3115d68adce0b0ed48fc65f7c31b9a98598fbf84b3c11bf34c2b78febb"
+    },
+    {
+      "path": "ghost_director/blender/lighting.py",
+      "sha256": "fa0a2d36eee613afa765d419f57869590bae1eb8db9840ae856c439446c00235"
+    },
+    {
+      "path": "ghost_director/blender/normalize_actor.py",
+      "sha256": "c42861df626175fd6448b7d56c622a2c81801d36eb4548b774034df89c616768"
+    },
+    {
+      "path": "ghost_director/blender/normalize_reference.py",
+      "sha256": "df57f0c40ba12db3c616b6c60aab004d7d6abf045074aaf3a65002b6ade4546c"
+    },
+    {
+      "path": "ghost_director/blender/render_motion.py",
+      "sha256": "5b2a5088d25664a5225bdaa33cbd80c467bd6976b6dea961bef16ac63d598294"
+    },
+    {
+      "path": "ghost_director/blender/render_scene.py",
+      "sha256": "280eef5b9345ca0353a8c3b19bf27085f5c0470e66a6731fe95d7cc646562a70"
+    },
+    {
+      "path": "ghost_director/bootstrap.py",
+      "sha256": "8d854821ee951430e38758e44de47bceb1e9f00ea8c4313062621c681e019d92"
+    },
+    {
+      "path": "ghost_director/cli.py",
+      "sha256": "7a0b98d1f283e8dbaf15c8077d09dae08b9c97405ae93fdd3454ea134ecb28cc"
+    },
+    {
+      "path": "ghost_director/config.py",
+      "sha256": "ff7e2f1e997143382bcee5a300919203a706d1da899efa1b101f0ad870995b51"
+    },
+    {
+      "path": "ghost_director/domain/__init__.py",
+      "sha256": "e1145cd212a7de70a996d57bce124795857cf97d405c105c4997a61765c8cfca"
+    },
+    {
+      "path": "ghost_director/domain/models.py",
+      "sha256": "2fe9dbd519a0e6e137f35896a48f363b80bbc3e822f1ebbd8dc6c79f7119cfcf"
+    },
+    {
+      "path": "ghost_director/identity_bindings.py",
+      "sha256": "57f83d5da870daeb97f8bc0aab6c825dddc651245f289e2047ec18164101b140"
+    },
+    {
+      "path": "ghost_director/jobs/__init__.py",
+      "sha256": "f538603bd31a4e9e9ec8855324b1f54e6c14be05f84414f6b7dbca462ef4e6e4"
+    },
+    {
+      "path": "ghost_director/jobs/store.py",
+      "sha256": "9a8fc29bdf7d848531290fdf555ccdf8aef3865a7d2ddd27369e953bba67927a"
+    },
+    {
+      "path": "ghost_director/media.py",
+      "sha256": "6c9a47008531a4c1872347cd4c4cc02bf88b38d69f217a7e6a96b0f350ae5ad1"
+    },
+    {
+      "path": "ghost_director/motion.py",
+      "sha256": "9afdd4c526531c4ce61d9390ec232658cb080177f84677f6fa80f9211c3da720"
+    },
+    {
+      "path": "ghost_director/motion_math.py",
+      "sha256": "5353aeef4eef4ec6897d723d448c2c3badb8afa38c2a81419983bda5687eaf15"
+    },
+    {
+      "path": "ghost_director/motion_models.py",
+      "sha256": "0a1922bc0fa9888e0bc459f5eb1cef3c6c9db3d5f95932c2ccc25ba1cadccb21"
+    },
+    {
+      "path": "ghost_director/providers/__init__.py",
+      "sha256": "f18348cb38b47c9307231ad4104264bccb1b6d69a402396a6ad8481b3cbc6466"
+    },
+    {
+      "path": "ghost_director/providers/http.py",
+      "sha256": "eb83ac90f23010613536f63e1e1fcd01e7dad340b79d95bf41a64b48dc621243"
+    },
+    {
+      "path": "ghost_director/providers/reference_video.py",
+      "sha256": "f5582d66fb1943da79ed2448c15ffd543d3c2a2c81cdc1cf5144bc1d72748ec1"
+    },
+    {
+      "path": "ghost_director/providers/runner.py",
+      "sha256": "7af7adebbcbfd70175c14f74957f0fe542f043da0f4fe326c4ff2b0b3bf99bd3"
+    },
+    {
+      "path": "ghost_director/providers/segmentation.py",
+      "sha256": "6491dda540d7cf38dd6421c8850f36cd8a5a9dc2acf8dc74e18c0c226cc89497"
+    },
+    {
+      "path": "ghost_director/reference_reconstruction.py",
+      "sha256": "18c91dd28aa830a0bf3b00241548207f53f861fbab242e123aea4008cd9ab1ea"
+    },
+    {
+      "path": "ghost_director/reference_workflow.py",
+      "sha256": "ae257abdfab69eb0ac673b6f30e9ce6fdf942e29b27c8e37695597dc14a81ce4"
+    },
+    {
+      "path": "ghost_director/references.py",
+      "sha256": "fba1782872d74e5fc2062c63493e92b7935c6a7855523b09a3fbe05e7b6571e9"
+    },
+    {
+      "path": "ghost_director/runtime/__init__.py",
+      "sha256": "9756d693a5ef40d373e1dae3d780ec1e39de32912a602fc62fef1d58cbed5cb4"
+    },
+    {
+      "path": "ghost_director/runtime/redaction.py",
+      "sha256": "20d61d51acf3bece1e913b3d007676a239b0cbcd3fcf9fd70a78f3c0a48164dd"
+    },
+    {
+      "path": "ghost_director/runtime/replay.py",
+      "sha256": "cc902e8ddb34f2892fb49c2992e809012a68c7bc4d8c9d5bf0cf90435d9ccf5d"
+    },
+    {
+      "path": "ghost_director/scene_design.py",
+      "sha256": "9901d77df43d91326105194a34e3b34e26f438250883f25c7532416b5f247885"
+    },
+    {
+      "path": "ghost_director/service.py",
+      "sha256": "36884fb29b6750c0ef8e5b898fa490a79e29fed2f44786c3b2e50ec0be132796"
+    },
+    {
+      "path": "ghost_director/shot_workflow.py",
+      "sha256": "cba6ed4b0baef5e85dc4ae450293299fa7edeaddb009796fe282407c31584d7b"
+    },
+    {
+      "path": "ghost_director/studio/__init__.py",
+      "sha256": "23aaa3d738c7649fdfaa511058a2e28c4c65bd698fb7224ac1d12735e459f37f"
+    },
+    {
+      "path": "ghost_director/studio/context.py",
+      "sha256": "fa836b792c39bfd50c0055abea980ad3262f6cc48f9f068134151c28fac8140f"
+    },
+    {
+      "path": "ghost_director/studio/contracts/dp.md",
+      "sha256": "38c2ff77ccad0d5ac00f6d12aa13a70b53a83ff1be4f634888c74555c9147aa3"
+    },
+    {
+      "path": "ghost_director/studio/contracts/planner.md",
+      "sha256": "09bad60888e9b3f6611b07c78bbe163097667f80a1c8642446944d2c92fea7a9"
+    },
+    {
+      "path": "ghost_director/studio/contracts/producer.md",
+      "sha256": "d1500118d294049c4a2bb0957645a6c66ccc9c74ad540e8c63556b6f88f66c35"
+    },
+    {
+      "path": "ghost_director/studio/contracts/shared.md",
+      "sha256": "e23f2eeb5dd115be40f0f35a05b3e93eb6b4f83254849bc1313390c53c826659"
+    },
+    {
+      "path": "ghost_director/studio/contracts/supervisor.md",
+      "sha256": "d414897944388f1d59181c3b2218fa36740507e3598bed8202d2304e4266b00b"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "4ff623c4ecf7192dcba0e7b4482d1916cb64e624fb9c0ff47d6cc3033d67d41f"
+    },
+    {
+      "path": "tests/ghost_director/providers/test_fal_video_faults.py",
+      "sha256": "f0804f59e5b88097208b6c7bc5a16bc11cb29936a24d3c69cd454d8a11d4540e"
+    },
+    {
+      "path": "tests/ghost_director/providers/test_http.py",
+      "sha256": "dbf670fcfd8e2c0010ca8329e58150e47d32c26c6631f61a0f4b87061b8ab4b1"
+    },
+    {
+      "path": "tests/ghost_director/providers/test_reference_video.py",
+      "sha256": "4e3c14cc45b6c422e15fda5d06380b90614fbebc928d2046efbfa5c7f29e3ceb"
+    },
+    {
+      "path": "tests/ghost_director/providers/test_runner_faults.py",
+      "sha256": "4fd842125b1a1b8d3c6df46fdeac73226141c2d1bf2bd961d418ccf80ba3f4e7"
+    },
+    {
+      "path": "tests/ghost_director/providers/test_segmentation.py",
+      "sha256": "37d0c60a6196e1219236c0bd3d0d989bb9ca40ba1fa5d044e5597c09e99c8752"
+    },
+    {
+      "path": "tests/ghost_director/runtime/test_api.py",
+      "sha256": "cd41f75414d8a42e3fd0f36ad27c81d46f135118a6678b63e9c7beb52de19bdd"
+    },
+    {
+      "path": "tests/ghost_director/runtime/test_cli.py",
+      "sha256": "c0bc5c4a43d5502c506e36a1d2a95b55bce647266b8ce6d13e96564f018f7531"
+    },
+    {
+      "path": "tests/ghost_director/runtime/test_demo_bundle.py",
+      "sha256": "4eee6fd3b24e6e7270d018db914238dfb9772b933e9e4dfcfc1dbb50852fe10c"
+    },
+    {
+      "path": "tests/ghost_director/runtime/test_reference_bundle.py",
+      "sha256": "02daca998f708673f4a64dfd37a1a6c4dbfe08396610c3291a7517aeab0be8a4"
+    },
+    {
+      "path": "tests/ghost_director/runtime/test_replay.py",
+      "sha256": "39cc7b86bb1fed6c6a59de7340914e0c8b1c70a8573d0447aff1bcf71b76aab2"
+    },
+    {
+      "path": "tests/ghost_director/runtime/test_store.py",
+      "sha256": "5fb6d53b35d1c432b6a36de2c128c1d2e9562098104c9307b601930d1099d61f"
+    },
+    {
+      "path": "tests/ghost_director/scene/blender_door_geometry.py",
+      "sha256": "076371b9833345320b04b86937c5eb82877b59e8057625229cd7e0ce506e8b37"
+    },
+    {
+      "path": "tests/ghost_director/scene/fixtures/README.md",
+      "sha256": "0283713c891eca10bc55b24d5aa4df9268bebef44c95498081e148180af5f2cb"
+    },
+    {
+      "path": "tests/ghost_director/scene/fixtures/blender-5.2.3-camera-proof.json",
+      "sha256": "8880cd402b6e3df4235bd0d09480ac6eb289edbd2189bbaca7c655362e13d2e4"
+    },
+    {
+      "path": "tests/ghost_director/scene/test_camera_contract.py",
+      "sha256": "515f010df2668b6fe1da2a389f8277e32271ac722c57d364068c031403537308"
+    },
+    {
+      "path": "tests/ghost_director/scene/test_edit_invariants.py",
+      "sha256": "6ad00b94bf93aa77f6dcc1cc34d8517ddb292c5e9ca16196185b0afd740d337f"
+    },
+    {
+      "path": "tests/ghost_director/service/test_bootstrap.py",
+      "sha256": "db57d65c801592041542bd9461f48d1b24d37fa6dad0d4a945c4c7272b4bad3a"
+    },
+    {
+      "path": "tests/ghost_director/service/test_boundaries.py",
+      "sha256": "d642076a0c22aa4fcddd8d025f6766be9b112e0bf8889e136b45ba696c0d706b"
+    },
+    {
+      "path": "tests/ghost_director/service/test_config.py",
+      "sha256": "cfc33ad0f3a91218dacf2b042ff87546b13d31cf6c1dedac316990ae0c85fa71"
+    },
+    {
+      "path": "tests/ghost_director/service/test_context.py",
+      "sha256": "e5667f9c2a6c0bd247b81f40176771d4e430dc4e12882cb9ad5d7395267b071d"
+    },
+    {
+      "path": "tests/ghost_director/service/test_endpoints.py",
+      "sha256": "4f7d886e2f6f3a59e52495af26f7dd82044707f0184c15a1854ddd8935a0d9e7"
+    },
+    {
+      "path": "tests/ghost_director/service/test_fresh_reference_example.py",
+      "sha256": "3c2339489e71684c9dab5a2e9142277d62f2bb9daac189ac6f7e8c5997bef9da"
+    },
+    {
+      "path": "tests/ghost_director/service/test_identity_bindings.py",
+      "sha256": "0cb81ec6994c413588e3e7180b4b38bbc8d3064b396f72e9b3dc27190bb1bd7c"
+    },
+    {
+      "path": "tests/ghost_director/service/test_motion.py",
+      "sha256": "61295f3518ecf06ac0c8705d8667d4d3e28e71c25af6abf5367ea1b80acd5daf"
+    },
+    {
+      "path": "tests/ghost_director/service/test_reference_pipeline.py",
+      "sha256": "7eb7dc1b684e5203ccd076e505057f5f81cc2205d55e730f524fe7f5ed3f4254"
+    },
+    {
+      "path": "tests/ghost_director/service/test_reference_reconstruction.py",
+      "sha256": "46314411206355fe1790bd3f54713acad8515f33020c7c835433cdc0210bc7fd"
+    },
+    {
+      "path": "tests/ghost_director/service/test_reference_routing.py",
+      "sha256": "6566ecd77a8b76a2884e4662781c95f91050ee52ca264fd27112825ea665aa7d"
+    },
+    {
+      "path": "tests/ghost_director/service/test_references.py",
+      "sha256": "6e5253097664a479436db89f1a1e2a3aa7705873c427ff0d9b423f8e6e1464b6"
+    },
+    {
+      "path": "tests/ghost_director/service/test_scene_design.py",
+      "sha256": "c3f35e264995b202f54136128168755487f9693fb2de624330f389bc2ec14291"
+    },
+    {
+      "path": "tests/ghost_director/service/test_video_evidence.py",
+      "sha256": "c848b0b5b11e338d42988a707f466108776c0de6284c8b36cbbe9535021068a0"
+    },
+    {
+      "path": "tools/export_ghost_contracts.py",
+      "sha256": "84f1cfc6fbe76b0fe6b5ca7d6f204c5bbe6aca949c3bfdd4549b7335db59f9d0"
+    },
+    {
+      "path": "tools/export_ghost_demo.py",
+      "sha256": "6bbd8cee74863d9a44538ccfe40c076706413ecd80688290352fe7a678935cf4"
+    },
+    {
+      "path": "tools/ghost_control.py",
+      "sha256": "501274d950b5421e5c19452a0eb6752fe46b4c4c35bc28f519b7e5359ab53180"
+    },
+    {
+      "path": "tools/ghost_demo_references.py",
+      "sha256": "7a0b4901ede79bbbe39577bc5fb022dacc0ba4f3966544419b5c31ae9136a7bb"
+    },
+    {
+      "path": "tools/ghost_doctor.py",
+      "sha256": "b280adfcf05511fb2f4e19942b07cf725bacdfb58d1b41215d4aa16f31cdb9d4"
+    },
+    {
+      "path": "tools/new_reference_example.py",
+      "sha256": "e76603953554c62a0b7e09b2a25824058e8b0ddaa4d89474c4783b8368d200f7"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "9d0580f5e8c58f541a86d8330bd9f77136bbe8e811d1216531d02f8dbb5dba38"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "5fc4269e51deebd52b66380ca989635535bbd9e494c4a3f0c8eda15038dec2f5"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "3eb765ee9f7d324a1de37b8173dbfc8fbe4fb9f3c7a9b6cdb8a3775e7df0daa7"
+    },
+    {
+      "path": "web/package.json",
+      "sha256": "6213197b7bd1b1682c14179a4e8e518032f568c624cfda72ce74bc144fad8195"
+    },
+    {
+      "path": "web/src/api/contracts.ts",
+      "sha256": "e594262c3d4a3de4242fcc6a9fa3168755fa3d61f3b55e39a882138022bcc7a2"
+    },
+    {
+      "path": "web/src/app/TerminalApp.tsx",
+      "sha256": "94e13405bbb28eb9f9bb92a995a392fbdc7a49246645c02413db8417f51177b6"
+    },
+    {
+      "path": "web/src/app/styles.d.ts",
+      "sha256": "da5bf71d48cf909584a01c80b445f730507068f5b34c920f352e2bfcf0315e4c"
+    },
+    {
+      "path": "web/src/app/terminal.css",
+      "sha256": "1ba11cd2e80f0920b5da5011101a1fc880babab1a1b16c3585cdcc729f1f2cbf"
+    },
+    {
+      "path": "web/src/main.tsx",
+      "sha256": "5d1d8868d9f5e75984bc0b7199818717d6b5c210c4dc24ed46d4db0508ca4afd"
+    },
+    {
+      "path": "web/src/state/design.ts",
+      "sha256": "5f6312a8c65de18c89cef99f0b8fa751b25e5d10af04b043488f8186ffd46bd0"
+    },
+    {
+      "path": "web/src/state/motion.ts",
+      "sha256": "46186f28c55f72fae2efb79856f3adcfb401d9066b2a104bdb4fddfa39a30aa9"
+    },
+    {
+      "path": "web/src/state/workspace.ts",
+      "sha256": "d71468f3fcbb764192975e4365cc49275a86fd0b9ccff54cf0a234f28958e86b"
+    },
+    {
+      "path": "web/src/terminal/ActivityDock.tsx",
+      "sha256": "8193f531ae2a367b1c937f4a0cb9652840f6498592060bee562ed884468a3e14"
+    },
+    {
+      "path": "web/src/terminal/ApprovedReferencePicker.tsx",
+      "sha256": "f9a16cd302d2fe20d0f3c128f397e389374d4a1563fdbf5de8a7c4f4ae7de7e4"
+    },
+    {
+      "path": "web/src/terminal/Artifacts.tsx",
+      "sha256": "17dddb46afe282d41ff0eb9a4be63fd84eb561272fab2a480604b1d707499b4a"
+    },
+    {
+      "path": "web/src/terminal/BlenderWorkflow.tsx",
+      "sha256": "fd77acabf9679e8fdb2b60d84cf7f870bf55e074099c6bd72b3383396f1b9ffc"
+    },
+    {
+      "path": "web/src/terminal/CreativeFlow.tsx",
+      "sha256": "f0409f110aa0e99cec0d2a954dd3fbd56e909115fa13f9d5cb6083e462e12dd3"
+    },
+    {
+      "path": "web/src/terminal/DesignControls.tsx",
+      "sha256": "b6c4b0c3d1cb609fa4013b40cf21c88a7c351b381958a28bcd6c95bf7dd5227e"
+    },
+    {
+      "path": "web/src/terminal/Dialog.tsx",
+      "sha256": "d601964775a096a0bb9fa35342f60bed89e97622f519ebddbc6e521724399b33"
+    },
+    {
+      "path": "web/src/terminal/Inspector.tsx",
+      "sha256": "a09edf8cdfe41fade9318682fcb3726fa0f6fb2d737541eaba04f06258fdf861"
+    },
+    {
+      "path": "web/src/terminal/LocationComparison.tsx",
+      "sha256": "294297173654639ebcb70d56d2143cb81204cbaeea4b7575866611b819e98242"
+    },
+    {
+      "path": "web/src/terminal/OutputShelf.tsx",
+      "sha256": "a3fac33ebf2af498d250badcf72e3a3055dad2ea4c42c6ab690b9154d2379572"
+    },
+    {
+      "path": "web/src/terminal/ReconstructionReview.tsx",
+      "sha256": "f4517985f8263cd3fac0d85bb26b295466af6048bf0d47c05a6d9a0fc0b65a2f"
+    },
+    {
+      "path": "web/src/terminal/ReferenceManager.tsx",
+      "sha256": "e793dc6d7e43db73785ac8713a1e0be0a12e711f46dd2443e05214d17ba255c6"
+    },
+    {
+      "path": "web/src/terminal/ShotPlanner.tsx",
+      "sha256": "ec6d505041e1e12a421e0ffeb3da2cf15056ec4361342a596e67ea42b0aabbec"
+    },
+    {
+      "path": "web/src/terminal/ShotSequence.tsx",
+      "sha256": "94f5b795481c4445c1e6a0e6207a85d61f7940181e57bac48345119614d71f38"
+    },
+    {
+      "path": "web/src/terminal/Sidebar.tsx",
+      "sha256": "8d953e4c277c9755489493188e289662f096b0af8972d02e745d7a7880225fea"
+    },
+    {
+      "path": "web/src/terminal/SubmissionReview.tsx",
+      "sha256": "03f4075f87731771036ff624e94dd894001b33591f8344bd5be775f2bb974fc1"
+    },
+    {
+      "path": "web/src/terminal/blender-workflow.css",
+      "sha256": "042b56eb64774145738d5499eb0cb2e0bddb554def6a60aa974c29cf67221307"
+    },
+    {
+      "path": "web/src/terminal/modelPresentation.ts",
+      "sha256": "656b120dbbefe5d81ba150a9ed026e5d9a961115d07ef257b1b8bc3f3b36fe0f"
+    },
+    {
+      "path": "web/src/terminal/primitives.tsx",
+      "sha256": "0b051b4b7684da957efc284b52323b7353101a7214e7b4bac19ac1e6693c5046"
+    },
+    {
+      "path": "web/src/terminal/records.ts",
+      "sha256": "a5468d08e0bfe0e21c9c07662053ebb47d50f25663838b52c89660197bad46a7"
+    },
+    {
+      "path": "web/src/terminal/reference-review.css",
+      "sha256": "dd141644f308568e74453918ef43c39a082406f1c723ed1614ca5690faa8452d"
+    },
+    {
+      "path": "web/src/terminal/shot-planner.css",
+      "sha256": "2b6db73fcdf26a0eefac38056f6b61981e59f34ded50ca15cddc446c6071a901"
+    },
+    {
+      "path": "web/src/terminal/types.ts",
+      "sha256": "94a649417fec5e14ab332cfc6bb18c7c3f6179b768c08f2044c12bd9425686f4"
+    },
+    {
+      "path": "web/src/viewport/SceneViewport.tsx",
+      "sha256": "9e13823438b8ed2d0c00e8b68f72c5352f2680a8ab43806be7a0f5af91a1ff78"
+    },
+    {
+      "path": "web/src/viewport/coordinates.test.ts",
+      "sha256": "b366f93f6badf1891e5a71968020cba0e0d67851f9399f87dbf654a6723ebb4e"
+    },
+    {
+      "path": "web/src/viewport/coordinates.ts",
+      "sha256": "ae41755c0f0b1133dbccad739bdfe62fd4b8df29340c5aa0985ba162abaf22eb"
+    },
+    {
+      "path": "web/src/viewport/index.ts",
+      "sha256": "af74f75e707c14aa27b7b447c684fc71757c0b67d13304cc8a8fb47782519667"
+    },
+    {
+      "path": "web/src/viewport/lighting.test.ts",
+      "sha256": "b8d2204d582532d3a25378217eb46a94189a3a12cb6e5e20d49cfce427b3a014"
+    },
+    {
+      "path": "web/src/viewport/lighting.ts",
+      "sha256": "17c2909a47c60bc1e580c32035ff9add8d4d783e378ee7d8004820b8a3c70b4e"
+    },
+    {
+      "path": "web/src/viewport/materials.test.ts",
+      "sha256": "abc7f27908d45c3555ca6bda40ee2962e53a1a5e34a70a331f0cff2815dd8fba"
+    },
+    {
+      "path": "web/src/viewport/materials.ts",
+      "sha256": "2b50e92951157d93ba7fd4db5f8b9e8c78030609196db30d118580b0e55f9792"
+    },
+    {
+      "path": "web/src/viewport/navigation.test.ts",
+      "sha256": "3143de47d70ed6c5ff15d4cc1193c3c5f40e203aa33484f3ebfe97062a1615e2"
+    },
+    {
+      "path": "web/src/viewport/navigation.ts",
+      "sha256": "e978f150cb47fa5d6cb63517339d64da4b0d947ed8ba0495edadd89a494e4fb4"
+    },
+    {
+      "path": "web/src/viewport/types.ts",
+      "sha256": "e73f3036264ccef72676bf9559b650c158c260c62709571b6ca7374b614e8dd7"
+    },
+    {
+      "path": "web/src/viewport/viewport.css",
+      "sha256": "f9eeeb3dba5562b790d5bcdb8574f3e4f540d1a9bfe5c0b977d695f18d0ced3c"
+    },
+    {
+      "path": "web/tests/terminal/BlenderWorkflow.test.tsx",
+      "sha256": "c4c2f1336a89f3ff6c554c648a01081344d69004f71a3443dfaac4c2ad342413"
+    },
+    {
+      "path": "web/tests/terminal/CreativeWorkspace.test.tsx",
+      "sha256": "a1d8727a04c657424cf36c13bc891924f1ef5410dfaad08ad262a98458f5dd77"
+    },
+    {
+      "path": "web/tests/terminal/DesignWorkflow.test.tsx",
+      "sha256": "4e66ce9bfcc79c4201b3350bd495d7e4433810240b1f977eb94aded36c44e3c8"
+    },
+    {
+      "path": "web/tests/terminal/LocationComparison.test.tsx",
+      "sha256": "2156c5b38420e188133e39f90462d2bcde4a202c120e2178341566c9170cf566"
+    },
+    {
+      "path": "web/tests/terminal/REVIEW.md",
+      "sha256": "bac4c0c7b0f62ce68fc08b413949172ea26f3a3acfd7705b6435e5eebc9c4e4a"
+    },
+    {
+      "path": "web/tests/terminal/ReconstructionReview.test.tsx",
+      "sha256": "94753268fd6bb6230022e4fb1b60a37d3cac74e46dd6f17b93bb8a47947fb3a6"
+    },
+    {
+      "path": "web/tests/terminal/ShotPlanner.test.tsx",
+      "sha256": "123c5d4f0a9eb2a7b0d337fe8b0e603c65526d7a84169b3260a3c4b87eaa4c03"
+    },
+    {
+      "path": "web/tests/terminal/TerminalApp.test.tsx",
+      "sha256": "52a0a44ee98be98b47ea6b37ac47cb0300cf38da0016efa1ba522afcc94902fe"
+    },
+    {
+      "path": "web/tests/terminal/fixtures.ts",
+      "sha256": "42e8280c298fddcdc55358033612757007bc6af0ec6664e025ba068ebc7f7545"
+    },
+    {
+      "path": "web/tests/terminal/motion.test.ts",
+      "sha256": "e51674f59de3dae7a481e5a955810ae49c63f57829f16bc3df9bd4a68cfc6b8c"
+    },
+    {
+      "path": "web/tests/terminal/workspace.test.ts",
+      "sha256": "80a9445c70c6a3df7d6f289eda2d0aa92e4ddc7c3041fe84989b78b3fed40250"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "sha256": "a4642dcab4e35e4e3a59a13ace82748b7153f34c20b4d655fe9c5bdb494b8e38"
+    },
+    {
+      "path": "web/vite.config.ts",
+      "sha256": "61f80e4dd4bc33a2875916d49bc2e96b20e7c956c56a0b0f53ca05597b97efba"
+    }
+  ]
+}

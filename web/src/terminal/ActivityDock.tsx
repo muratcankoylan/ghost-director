@@ -1,0 +1,16 @@
+import { useState } from 'react';
+import { ArrowRight, GitBranch, History, Radio } from 'lucide-react';
+import type { Snapshot } from '../api/contracts';
+import type { InspectionFocus } from '../state/workspace';
+import { handoffDetails } from './records';
+import { humanize, localTime, shortId, StatusBadge } from './primitives';
+
+export function ActivityDock({ snapshot, focus, onInspect, onReplay, replay, initialShowEvents = false }: { initialShowEvents?: boolean; snapshot: Snapshot; focus: InspectionFocus | null; onInspect: (focus: InspectionFocus) => void; onReplay: () => void; replay: boolean }) {
+  const handoffs = (snapshot.handoffs ?? []).slice(-100).reverse();
+  const events = (snapshot.events ?? []).slice(-80).reverse();
+  const [showEvents, setShowEvents] = useState(initialShowEvents);
+  const taskLabel = (id: string | null) => snapshot.tasks?.find((task) => task.id === id)?.role_label ?? shortId(id, 10);
+  return <section className="activity-dock" aria-label="Run activity"><div className="activity-header"><GitBranch size={12} /><h2>Handoffs & activity</h2><span className="event-count">{snapshot.last_seq} recorded events</span><div className="activity-actions"><button className="text-button" aria-pressed={showEvents} onClick={() => setShowEvents(!showEvents)}>{showEvents ? 'Handoffs' : 'Event log'}</button><button className="text-button" onClick={onReplay}><History size={12} />{replay ? 'Return to live' : 'Replay run'}</button></div></div><div className="handoff-scroll">
+    {handoffs.length && !showEvents ? handoffs.map((handoff) => <button key={handoff.id} className={`handoff-row ${focus?.id === handoff.id ? 'selected' : ''}`} onClick={() => onInspect({ kind: 'handoff', id: handoff.id, scene_revision_id: handoff.scene_revision_id ?? snapshot.scene?.id ?? '', run_id: handoff.run_id })}><span className="handoff-time">{localTime(handoff.created_at)}</span><span className="handoff-route">{taskLabel(handoffDetails(handoff, snapshot.tasks).senderId)}<ArrowRight size={10} />{taskLabel(handoffDetails(handoff, snapshot.tasks).receiverId)}</span><span className="handoff-artifact">{handoff.evidence_origin === 'imported' && <strong>Imported · Historical handoff · </strong>}{handoffDetails(handoff, snapshot.tasks).references.length} attached artifacts</span><StatusBadge status={handoffDetails(handoff, snapshot.tasks).state} compact /></button>) : events.length ? events.map((event) => <button key={event.id} className="handoff-row" onClick={() => (event.task_id || event.job_id) && onInspect({ kind: event.task_id ? 'task' : 'model_call', id: (event.task_id ?? event.job_id)!, task_id: event.task_id ?? undefined, scene_revision_id: snapshot.scene?.id ?? '', run_id: event.run_id ?? undefined })}><span className="handoff-time">{localTime(event.recorded_at)}</span><span className="handoff-route">{humanize(event.type)}</span><span className="handoff-artifact">{event.task_id ? taskLabel(event.task_id) : event.job_id ? shortId(event.job_id) : 'Production event'}</span><span className="inspector-id">#{event.seq}</span></button>) : <div className="activity-empty"><Radio size={14} />No work has been dispatched. Give the crew a direction to start a recorded run.</div>}
+  </div></section>;
+}

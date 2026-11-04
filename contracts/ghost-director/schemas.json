@@ -1,0 +1,4009 @@
+{
+  "Material": {
+    "additionalProperties": false,
+    "properties": {
+      "color": {
+        "default": "#b5aa92",
+        "pattern": "^#[0-9a-fA-F]{6}$",
+        "title": "Color",
+        "type": "string"
+      },
+      "roughness": {
+        "default": 0.5,
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Roughness",
+        "type": "number"
+      },
+      "metalness": {
+        "default": 0,
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Metalness",
+        "type": "number"
+      }
+    },
+    "title": "Material",
+    "type": "object"
+  },
+  "Entity": {
+    "$defs": {
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "name": {
+        "maxLength": 120,
+        "minLength": 1,
+        "title": "Name",
+        "type": "string"
+      },
+      "kind": {
+        "enum": [
+          "actor",
+          "prop",
+          "room",
+          "light",
+          "set"
+        ],
+        "title": "Kind",
+        "type": "string"
+      },
+      "position": {
+        "default": [
+          0,
+          0,
+          0
+        ],
+        "maxItems": 3,
+        "minItems": 3,
+        "prefixItems": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "title": "Position",
+        "type": "array"
+      },
+      "rotation": {
+        "default": [
+          0,
+          0,
+          0
+        ],
+        "maxItems": 3,
+        "minItems": 3,
+        "prefixItems": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "title": "Rotation",
+        "type": "array"
+      },
+      "scale": {
+        "default": [
+          1,
+          1,
+          1
+        ],
+        "maxItems": 3,
+        "minItems": 3,
+        "prefixItems": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "title": "Scale",
+        "type": "array"
+      },
+      "dimensions": {
+        "default": [
+          1,
+          1,
+          1
+        ],
+        "maxItems": 3,
+        "minItems": 3,
+        "prefixItems": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "title": "Dimensions",
+        "type": "array"
+      },
+      "material": {
+        "$ref": "#/$defs/Material"
+      },
+      "asset_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Asset Id"
+      },
+      "asset_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Asset Url"
+      },
+      "visible": {
+        "default": true,
+        "title": "Visible",
+        "type": "boolean"
+      },
+      "state": {
+        "additionalProperties": true,
+        "title": "State",
+        "type": "object"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "kind"
+    ],
+    "title": "Entity",
+    "type": "object"
+  },
+  "Camera": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "position": {
+        "maxItems": 3,
+        "minItems": 3,
+        "prefixItems": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "title": "Position",
+        "type": "array"
+      },
+      "target": {
+        "maxItems": 3,
+        "minItems": 3,
+        "prefixItems": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "title": "Target",
+        "type": "array"
+      },
+      "focal_length_mm": {
+        "default": 50,
+        "maximum": 300,
+        "minimum": 12,
+        "title": "Focal Length Mm",
+        "type": "number"
+      },
+      "sensor_width_mm": {
+        "default": 36,
+        "exclusiveMinimum": 0,
+        "maximum": 100,
+        "title": "Sensor Width Mm",
+        "type": "number"
+      },
+      "aspect_ratio": {
+        "default": 1.7777777777777777,
+        "exclusiveMinimum": 0.2,
+        "maximum": 5,
+        "title": "Aspect Ratio",
+        "type": "number"
+      },
+      "near": {
+        "default": 0.05,
+        "exclusiveMinimum": 0,
+        "title": "Near",
+        "type": "number"
+      },
+      "far": {
+        "default": 100,
+        "exclusiveMinimum": 0,
+        "title": "Far",
+        "type": "number"
+      },
+      "depth_of_field": {
+        "default": false,
+        "title": "Depth Of Field",
+        "type": "boolean"
+      },
+      "aperture_fstop": {
+        "default": 4,
+        "maximum": 32,
+        "minimum": 1,
+        "title": "Aperture Fstop",
+        "type": "number"
+      },
+      "focus_distance_m": {
+        "anyOf": [
+          {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Focus Distance M"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "position",
+      "target"
+    ],
+    "title": "Camera",
+    "type": "object"
+  },
+  "Room": {
+    "$defs": {
+      "DoorOpening": {
+        "additionalProperties": false,
+        "properties": {
+          "wall": {
+            "default": "west",
+            "enum": [
+              "west",
+              "east"
+            ],
+            "title": "Wall",
+            "type": "string"
+          },
+          "center_y": {
+            "default": 0.28,
+            "title": "Center Y",
+            "type": "number"
+          },
+          "width": {
+            "default": 0.96,
+            "maximum": 3,
+            "minimum": 0.6,
+            "title": "Width",
+            "type": "number"
+          },
+          "height": {
+            "default": 2.5,
+            "maximum": 5,
+            "minimum": 1.8,
+            "title": "Height",
+            "type": "number"
+          }
+        },
+        "title": "DoorOpening",
+        "type": "object"
+      },
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      },
+      "RoomDesign": {
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "const": 1,
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          },
+          "style": {
+            "default": "warm_modern",
+            "enum": [
+              "warm_modern",
+              "minimal",
+              "noir"
+            ],
+            "title": "Style",
+            "type": "string"
+          },
+          "windows": {
+            "items": {
+              "$ref": "#/$defs/WindowOpening"
+            },
+            "maxItems": 4,
+            "title": "Windows",
+            "type": "array"
+          },
+          "door": {
+            "$ref": "#/$defs/DoorOpening"
+          },
+          "surfaces": {
+            "$ref": "#/$defs/SurfacePalette"
+          },
+          "details": {
+            "$ref": "#/$defs/RoomDetails"
+          },
+          "exposure": {
+            "default": 0,
+            "maximum": 4,
+            "minimum": -4,
+            "title": "Exposure",
+            "type": "number"
+          }
+        },
+        "title": "RoomDesign",
+        "type": "object"
+      },
+      "RoomDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "curtains": {
+            "default": true,
+            "title": "Curtains",
+            "type": "boolean"
+          },
+          "sideboard": {
+            "default": true,
+            "title": "Sideboard",
+            "type": "boolean"
+          },
+          "chandelier": {
+            "default": true,
+            "title": "Chandelier",
+            "type": "boolean"
+          }
+        },
+        "title": "RoomDetails",
+        "type": "object"
+      },
+      "SurfacePalette": {
+        "additionalProperties": false,
+        "properties": {
+          "walls": {
+            "$ref": "#/$defs/Material"
+          },
+          "ceiling": {
+            "$ref": "#/$defs/Material"
+          },
+          "floor": {
+            "$ref": "#/$defs/Material"
+          },
+          "trim": {
+            "$ref": "#/$defs/Material"
+          },
+          "curtains": {
+            "$ref": "#/$defs/Material"
+          }
+        },
+        "title": "SurfacePalette",
+        "type": "object"
+      },
+      "WindowOpening": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "center_x": {
+            "title": "Center X",
+            "type": "number"
+          },
+          "width": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 30,
+            "title": "Width",
+            "type": "number"
+          },
+          "sill": {
+            "minimum": 0.1,
+            "title": "Sill",
+            "type": "number"
+          },
+          "height": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 20,
+            "title": "Height",
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "center_x",
+          "width",
+          "sill",
+          "height"
+        ],
+        "title": "WindowOpening",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "width": {
+        "default": 10,
+        "exclusiveMinimum": 0,
+        "maximum": 100,
+        "title": "Width",
+        "type": "number"
+      },
+      "depth": {
+        "default": 6.2,
+        "exclusiveMinimum": 0,
+        "maximum": 100,
+        "title": "Depth",
+        "type": "number"
+      },
+      "height": {
+        "default": 3.15,
+        "exclusiveMinimum": 0,
+        "maximum": 30,
+        "title": "Height",
+        "type": "number"
+      },
+      "design": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/RoomDesign"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      }
+    },
+    "title": "Room",
+    "type": "object"
+  },
+  "SceneRevision": {
+    "$defs": {
+      "Camera": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "position": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "target": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Target",
+            "type": "array"
+          },
+          "focal_length_mm": {
+            "default": 50,
+            "maximum": 300,
+            "minimum": 12,
+            "title": "Focal Length Mm",
+            "type": "number"
+          },
+          "sensor_width_mm": {
+            "default": 36,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Sensor Width Mm",
+            "type": "number"
+          },
+          "aspect_ratio": {
+            "default": 1.7777777777777777,
+            "exclusiveMinimum": 0.2,
+            "maximum": 5,
+            "title": "Aspect Ratio",
+            "type": "number"
+          },
+          "near": {
+            "default": 0.05,
+            "exclusiveMinimum": 0,
+            "title": "Near",
+            "type": "number"
+          },
+          "far": {
+            "default": 100,
+            "exclusiveMinimum": 0,
+            "title": "Far",
+            "type": "number"
+          },
+          "depth_of_field": {
+            "default": false,
+            "title": "Depth Of Field",
+            "type": "boolean"
+          },
+          "aperture_fstop": {
+            "default": 4,
+            "maximum": 32,
+            "minimum": 1,
+            "title": "Aperture Fstop",
+            "type": "number"
+          },
+          "focus_distance_m": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Focus Distance M"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "position",
+          "target"
+        ],
+        "title": "Camera",
+        "type": "object"
+      },
+      "DoorOpening": {
+        "additionalProperties": false,
+        "properties": {
+          "wall": {
+            "default": "west",
+            "enum": [
+              "west",
+              "east"
+            ],
+            "title": "Wall",
+            "type": "string"
+          },
+          "center_y": {
+            "default": 0.28,
+            "title": "Center Y",
+            "type": "number"
+          },
+          "width": {
+            "default": 0.96,
+            "maximum": 3,
+            "minimum": 0.6,
+            "title": "Width",
+            "type": "number"
+          },
+          "height": {
+            "default": 2.5,
+            "maximum": 5,
+            "minimum": 1.8,
+            "title": "Height",
+            "type": "number"
+          }
+        },
+        "title": "DoorOpening",
+        "type": "object"
+      },
+      "Entity": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "actor",
+              "prop",
+              "room",
+              "light",
+              "set"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "position": {
+            "default": [
+              0,
+              0,
+              0
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "rotation": {
+            "default": [
+              0,
+              0,
+              0
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Rotation",
+            "type": "array"
+          },
+          "scale": {
+            "default": [
+              1,
+              1,
+              1
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Scale",
+            "type": "array"
+          },
+          "dimensions": {
+            "default": [
+              1,
+              1,
+              1
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Dimensions",
+            "type": "array"
+          },
+          "material": {
+            "$ref": "#/$defs/Material"
+          },
+          "asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Asset Id"
+          },
+          "asset_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Asset Url"
+          },
+          "visible": {
+            "default": true,
+            "title": "Visible",
+            "type": "boolean"
+          },
+          "state": {
+            "additionalProperties": true,
+            "title": "State",
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ],
+        "title": "Entity",
+        "type": "object"
+      },
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      },
+      "Room": {
+        "additionalProperties": false,
+        "properties": {
+          "width": {
+            "default": 10,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Width",
+            "type": "number"
+          },
+          "depth": {
+            "default": 6.2,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Depth",
+            "type": "number"
+          },
+          "height": {
+            "default": 3.15,
+            "exclusiveMinimum": 0,
+            "maximum": 30,
+            "title": "Height",
+            "type": "number"
+          },
+          "design": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/RoomDesign"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "title": "Room",
+        "type": "object"
+      },
+      "RoomDesign": {
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "const": 1,
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          },
+          "style": {
+            "default": "warm_modern",
+            "enum": [
+              "warm_modern",
+              "minimal",
+              "noir"
+            ],
+            "title": "Style",
+            "type": "string"
+          },
+          "windows": {
+            "items": {
+              "$ref": "#/$defs/WindowOpening"
+            },
+            "maxItems": 4,
+            "title": "Windows",
+            "type": "array"
+          },
+          "door": {
+            "$ref": "#/$defs/DoorOpening"
+          },
+          "surfaces": {
+            "$ref": "#/$defs/SurfacePalette"
+          },
+          "details": {
+            "$ref": "#/$defs/RoomDetails"
+          },
+          "exposure": {
+            "default": 0,
+            "maximum": 4,
+            "minimum": -4,
+            "title": "Exposure",
+            "type": "number"
+          }
+        },
+        "title": "RoomDesign",
+        "type": "object"
+      },
+      "RoomDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "curtains": {
+            "default": true,
+            "title": "Curtains",
+            "type": "boolean"
+          },
+          "sideboard": {
+            "default": true,
+            "title": "Sideboard",
+            "type": "boolean"
+          },
+          "chandelier": {
+            "default": true,
+            "title": "Chandelier",
+            "type": "boolean"
+          }
+        },
+        "title": "RoomDetails",
+        "type": "object"
+      },
+      "SurfacePalette": {
+        "additionalProperties": false,
+        "properties": {
+          "walls": {
+            "$ref": "#/$defs/Material"
+          },
+          "ceiling": {
+            "$ref": "#/$defs/Material"
+          },
+          "floor": {
+            "$ref": "#/$defs/Material"
+          },
+          "trim": {
+            "$ref": "#/$defs/Material"
+          },
+          "curtains": {
+            "$ref": "#/$defs/Material"
+          }
+        },
+        "title": "SurfacePalette",
+        "type": "object"
+      },
+      "WindowOpening": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "center_x": {
+            "title": "Center X",
+            "type": "number"
+          },
+          "width": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 30,
+            "title": "Width",
+            "type": "number"
+          },
+          "sill": {
+            "minimum": 0.1,
+            "title": "Sill",
+            "type": "number"
+          },
+          "height": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 20,
+            "title": "Height",
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "center_x",
+          "width",
+          "sill",
+          "height"
+        ],
+        "title": "WindowOpening",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "parent_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Parent Id"
+      },
+      "restored_from_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Restored From Id"
+      },
+      "name": {
+        "default": "The Dinner",
+        "title": "Name",
+        "type": "string"
+      },
+      "units": {
+        "const": "meters",
+        "default": "meters",
+        "title": "Units",
+        "type": "string"
+      },
+      "up_axis": {
+        "const": "Z",
+        "default": "Z",
+        "title": "Up Axis",
+        "type": "string"
+      },
+      "entities": {
+        "items": {
+          "$ref": "#/$defs/Entity"
+        },
+        "title": "Entities",
+        "type": "array"
+      },
+      "cameras": {
+        "items": {
+          "$ref": "#/$defs/Camera"
+        },
+        "title": "Cameras",
+        "type": "array"
+      },
+      "room": {
+        "$ref": "#/$defs/Room"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "entities",
+      "cameras"
+    ],
+    "title": "SceneRevision",
+    "type": "object"
+  },
+  "EntityPatch": {
+    "$defs": {
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "entity_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Entity Id",
+        "type": "string"
+      },
+      "position": {
+        "anyOf": [
+          {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Position"
+      },
+      "rotation": {
+        "anyOf": [
+          {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Rotation"
+      },
+      "scale": {
+        "anyOf": [
+          {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Scale"
+      },
+      "material": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Material"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      },
+      "state": {
+        "anyOf": [
+          {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "State"
+      }
+    },
+    "required": [
+      "entity_id"
+    ],
+    "title": "EntityPatch",
+    "type": "object"
+  },
+  "ShotPlan": {
+    "$defs": {
+      "CameraKeyframe": {
+        "additionalProperties": false,
+        "properties": {
+          "time_seconds": {
+            "maximum": 30,
+            "minimum": 0,
+            "title": "Time Seconds",
+            "type": "number"
+          },
+          "position": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "target": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Target",
+            "type": "array"
+          },
+          "focal_length_mm": {
+            "default": 50,
+            "maximum": 300,
+            "minimum": 12,
+            "title": "Focal Length Mm",
+            "type": "number"
+          }
+        },
+        "required": [
+          "time_seconds",
+          "position",
+          "target"
+        ],
+        "title": "CameraKeyframe",
+        "type": "object"
+      },
+      "EntityKeyframe": {
+        "additionalProperties": false,
+        "properties": {
+          "time_seconds": {
+            "maximum": 30,
+            "minimum": 0,
+            "title": "Time Seconds",
+            "type": "number"
+          },
+          "position": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "rotation": {
+            "default": [
+              0,
+              0,
+              0
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Rotation",
+            "type": "array"
+          }
+        },
+        "required": [
+          "time_seconds",
+          "position"
+        ],
+        "title": "EntityKeyframe",
+        "type": "object"
+      },
+      "EntityPatch": {
+        "additionalProperties": false,
+        "properties": {
+          "entity_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Position"
+          },
+          "rotation": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Rotation"
+          },
+          "scale": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Scale"
+          },
+          "material": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Material"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "state": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State"
+          }
+        },
+        "required": [
+          "entity_id"
+        ],
+        "title": "EntityPatch",
+        "type": "object"
+      },
+      "EntityTrack": {
+        "additionalProperties": false,
+        "properties": {
+          "entity_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "keyframes": {
+            "items": {
+              "$ref": "#/$defs/EntityKeyframe"
+            },
+            "maxItems": 64,
+            "minItems": 2,
+            "title": "Keyframes",
+            "type": "array"
+          }
+        },
+        "required": [
+          "entity_id",
+          "keyframes"
+        ],
+        "title": "EntityTrack",
+        "type": "object"
+      },
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      },
+      "MotionPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "const": 1,
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          },
+          "interpolation": {
+            "const": "linear",
+            "default": "linear",
+            "title": "Interpolation",
+            "type": "string"
+          },
+          "camera_keyframes": {
+            "items": {
+              "$ref": "#/$defs/CameraKeyframe"
+            },
+            "maxItems": 64,
+            "minItems": 2,
+            "title": "Camera Keyframes",
+            "type": "array"
+          },
+          "tracks": {
+            "items": {
+              "$ref": "#/$defs/EntityTrack"
+            },
+            "maxItems": 64,
+            "title": "Tracks",
+            "type": "array"
+          }
+        },
+        "required": [
+          "camera_keyframes"
+        ],
+        "title": "MotionPlan",
+        "type": "object"
+      },
+      "ReferencePin": {
+        "additionalProperties": false,
+        "properties": {
+          "asset_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Asset Id",
+            "type": "string"
+          },
+          "revision_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Revision Id",
+            "type": "string"
+          },
+          "state": {
+            "default": "default",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "State",
+            "type": "string"
+          }
+        },
+        "required": [
+          "asset_id",
+          "revision_id"
+        ],
+        "title": "ReferencePin",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "parent_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Parent Id"
+      },
+      "fps": {
+        "const": 24,
+        "default": 24,
+        "title": "Fps",
+        "type": "integer"
+      },
+      "motion": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/MotionPlan"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      },
+      "reference_pins": {
+        "items": {
+          "$ref": "#/$defs/ReferencePin"
+        },
+        "maxItems": 30,
+        "title": "Reference Pins",
+        "type": "array"
+      },
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "scene_revision_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Scene Revision Id",
+        "type": "string"
+      },
+      "camera_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Camera Id",
+        "type": "string"
+      },
+      "duration": {
+        "default": 5,
+        "maximum": 30,
+        "minimum": 4,
+        "title": "Duration",
+        "type": "integer"
+      },
+      "action": {
+        "default": "Hold the scene with natural restrained performance.",
+        "maxLength": 12000,
+        "title": "Action",
+        "type": "string"
+      },
+      "assertions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Assertions",
+        "type": "array"
+      },
+      "proposed_patch": {
+        "items": {
+          "$ref": "#/$defs/EntityPatch"
+        },
+        "title": "Proposed Patch",
+        "type": "array"
+      },
+      "reference_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Reference Ids",
+        "type": "array"
+      },
+      "status": {
+        "default": "draft",
+        "title": "Status",
+        "type": "string"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "scene_revision_id",
+      "camera_id"
+    ],
+    "title": "ShotPlan",
+    "type": "object"
+  },
+  "Artifact": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "kind": {
+        "title": "Kind",
+        "type": "string"
+      },
+      "mime_type": {
+        "title": "Mime Type",
+        "type": "string"
+      },
+      "sha256": {
+        "title": "Sha256",
+        "type": "string"
+      },
+      "bytes": {
+        "minimum": 0,
+        "title": "Bytes",
+        "type": "integer"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "relative_path": {
+        "title": "Relative Path",
+        "type": "string"
+      },
+      "metadata": {
+        "additionalProperties": true,
+        "title": "Metadata",
+        "type": "object"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      },
+      "url": {
+        "default": "",
+        "title": "Url",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "kind",
+      "mime_type",
+      "sha256",
+      "bytes",
+      "name",
+      "relative_path"
+    ],
+    "title": "Artifact",
+    "type": "object"
+  },
+  "AgentTask": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "run_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "role_id": {
+        "title": "Role Id",
+        "type": "string"
+      },
+      "role_label": {
+        "title": "Role Label",
+        "type": "string"
+      },
+      "model": {
+        "title": "Model",
+        "type": "string"
+      },
+      "persona_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Persona Id"
+      },
+      "scene_revision_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Scene Revision Id"
+      },
+      "goal": {
+        "title": "Goal",
+        "type": "string"
+      },
+      "status": {
+        "default": "queued",
+        "title": "Status",
+        "type": "string"
+      },
+      "input_refs": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Input Refs",
+        "type": "array"
+      },
+      "output_refs": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Output Refs",
+        "type": "array"
+      },
+      "prompt_ref": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Prompt Ref"
+      },
+      "context_ref": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Context Ref"
+      },
+      "attempt": {
+        "default": 0,
+        "title": "Attempt",
+        "type": "integer"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "run_id",
+      "role_id",
+      "role_label",
+      "model",
+      "goal"
+    ],
+    "title": "AgentTask",
+    "type": "object"
+  },
+  "Observation": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "take_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Take Id",
+        "type": "string"
+      },
+      "assertion": {
+        "title": "Assertion",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "pass",
+          "fail",
+          "unknown"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "detail": {
+        "title": "Detail",
+        "type": "string"
+      },
+      "time_ms": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Time Ms"
+      },
+      "evidence_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Evidence Ids",
+        "type": "array"
+      },
+      "entity_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Entity Ids",
+        "type": "array"
+      },
+      "method": {
+        "default": "meta-visual-review",
+        "title": "Method",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "take_id",
+      "assertion",
+      "status",
+      "detail"
+    ],
+    "title": "Observation",
+    "type": "object"
+  },
+  "Take": {
+    "$defs": {
+      "EntityPatch": {
+        "additionalProperties": false,
+        "properties": {
+          "entity_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Position"
+          },
+          "rotation": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Rotation"
+          },
+          "scale": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Scale"
+          },
+          "material": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Material"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "state": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State"
+          }
+        },
+        "required": [
+          "entity_id"
+        ],
+        "title": "EntityPatch",
+        "type": "object"
+      },
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "proposed_patch": {
+        "items": {
+          "$ref": "#/$defs/EntityPatch"
+        },
+        "title": "Proposed Patch",
+        "type": "array"
+      },
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "shot_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Shot Id",
+        "type": "string"
+      },
+      "scene_revision_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Scene Revision Id",
+        "type": "string"
+      },
+      "package_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Package Id",
+        "type": "string"
+      },
+      "job_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Job Id",
+        "type": "string"
+      },
+      "artifact_id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Artifact Id",
+        "type": "string"
+      },
+      "poster_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Poster Id"
+      },
+      "run_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Run Id"
+      },
+      "status": {
+        "default": "unreviewed",
+        "enum": [
+          "unreviewed",
+          "reviewed",
+          "accepted",
+          "rejected"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "shot_id",
+      "scene_revision_id",
+      "package_id",
+      "job_id",
+      "artifact_id"
+    ],
+    "title": "Take",
+    "type": "object"
+  },
+  "Event": {
+    "additionalProperties": false,
+    "properties": {
+      "seq": {
+        "title": "Seq",
+        "type": "integer"
+      },
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "type": {
+        "title": "Type",
+        "type": "string"
+      },
+      "recorded_at": {
+        "title": "Recorded At",
+        "type": "string"
+      },
+      "run_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Run Id"
+      },
+      "task_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Task Id"
+      },
+      "job_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Job Id"
+      },
+      "payload": {
+        "additionalProperties": true,
+        "title": "Payload",
+        "type": "object"
+      },
+      "artifact_refs": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Artifact Refs",
+        "type": "array"
+      }
+    },
+    "required": [
+      "seq",
+      "id",
+      "type",
+      "recorded_at"
+    ],
+    "title": "Event",
+    "type": "object"
+  },
+  "Command": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "operation": {
+        "enum": [
+          "direction",
+          "apply_scene",
+          "apply_design",
+          "render_preview",
+          "restore_revision",
+          "update_camera",
+          "save_shot",
+          "generate",
+          "accept_take",
+          "reject_take",
+          "repair_take",
+          "pause",
+          "resume",
+          "cancel_job",
+          "undo",
+          "generate_image",
+          "retire_unknown",
+          "create_reference_asset",
+          "generate_reference",
+          "approve_reference",
+          "import_reference",
+          "crop_reference",
+          "reconstruct_reference",
+          "review_reconstruction",
+          "place_reference",
+          "bind_reference",
+          "update_shot_plan",
+          "render_motion",
+          "compile_shot",
+          "generate_package"
+        ],
+        "title": "Operation",
+        "type": "string"
+      },
+      "expected_revision": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Expected Revision"
+      },
+      "payload": {
+        "additionalProperties": true,
+        "title": "Payload",
+        "type": "object"
+      }
+    },
+    "required": [
+      "id",
+      "operation"
+    ],
+    "title": "Command",
+    "type": "object"
+  },
+  "Snapshot": {
+    "$defs": {
+      "Artifact": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "mime_type": {
+            "title": "Mime Type",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "bytes": {
+            "minimum": 0,
+            "title": "Bytes",
+            "type": "integer"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "relative_path": {
+            "title": "Relative Path",
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "title": "Metadata",
+            "type": "object"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "url": {
+            "default": "",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "mime_type",
+          "sha256",
+          "bytes",
+          "name",
+          "relative_path"
+        ],
+        "title": "Artifact",
+        "type": "object"
+      },
+      "Camera": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "position": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "target": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Target",
+            "type": "array"
+          },
+          "focal_length_mm": {
+            "default": 50,
+            "maximum": 300,
+            "minimum": 12,
+            "title": "Focal Length Mm",
+            "type": "number"
+          },
+          "sensor_width_mm": {
+            "default": 36,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Sensor Width Mm",
+            "type": "number"
+          },
+          "aspect_ratio": {
+            "default": 1.7777777777777777,
+            "exclusiveMinimum": 0.2,
+            "maximum": 5,
+            "title": "Aspect Ratio",
+            "type": "number"
+          },
+          "near": {
+            "default": 0.05,
+            "exclusiveMinimum": 0,
+            "title": "Near",
+            "type": "number"
+          },
+          "far": {
+            "default": 100,
+            "exclusiveMinimum": 0,
+            "title": "Far",
+            "type": "number"
+          },
+          "depth_of_field": {
+            "default": false,
+            "title": "Depth Of Field",
+            "type": "boolean"
+          },
+          "aperture_fstop": {
+            "default": 4,
+            "maximum": 32,
+            "minimum": 1,
+            "title": "Aperture Fstop",
+            "type": "number"
+          },
+          "focus_distance_m": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Focus Distance M"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "position",
+          "target"
+        ],
+        "title": "Camera",
+        "type": "object"
+      },
+      "CameraKeyframe": {
+        "additionalProperties": false,
+        "properties": {
+          "time_seconds": {
+            "maximum": 30,
+            "minimum": 0,
+            "title": "Time Seconds",
+            "type": "number"
+          },
+          "position": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "target": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Target",
+            "type": "array"
+          },
+          "focal_length_mm": {
+            "default": 50,
+            "maximum": 300,
+            "minimum": 12,
+            "title": "Focal Length Mm",
+            "type": "number"
+          }
+        },
+        "required": [
+          "time_seconds",
+          "position",
+          "target"
+        ],
+        "title": "CameraKeyframe",
+        "type": "object"
+      },
+      "DoorOpening": {
+        "additionalProperties": false,
+        "properties": {
+          "wall": {
+            "default": "west",
+            "enum": [
+              "west",
+              "east"
+            ],
+            "title": "Wall",
+            "type": "string"
+          },
+          "center_y": {
+            "default": 0.28,
+            "title": "Center Y",
+            "type": "number"
+          },
+          "width": {
+            "default": 0.96,
+            "maximum": 3,
+            "minimum": 0.6,
+            "title": "Width",
+            "type": "number"
+          },
+          "height": {
+            "default": 2.5,
+            "maximum": 5,
+            "minimum": 1.8,
+            "title": "Height",
+            "type": "number"
+          }
+        },
+        "title": "DoorOpening",
+        "type": "object"
+      },
+      "Entity": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "actor",
+              "prop",
+              "room",
+              "light",
+              "set"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "position": {
+            "default": [
+              0,
+              0,
+              0
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "rotation": {
+            "default": [
+              0,
+              0,
+              0
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Rotation",
+            "type": "array"
+          },
+          "scale": {
+            "default": [
+              1,
+              1,
+              1
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Scale",
+            "type": "array"
+          },
+          "dimensions": {
+            "default": [
+              1,
+              1,
+              1
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Dimensions",
+            "type": "array"
+          },
+          "material": {
+            "$ref": "#/$defs/Material"
+          },
+          "asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Asset Id"
+          },
+          "asset_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Asset Url"
+          },
+          "visible": {
+            "default": true,
+            "title": "Visible",
+            "type": "boolean"
+          },
+          "state": {
+            "additionalProperties": true,
+            "title": "State",
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ],
+        "title": "Entity",
+        "type": "object"
+      },
+      "EntityKeyframe": {
+        "additionalProperties": false,
+        "properties": {
+          "time_seconds": {
+            "maximum": 30,
+            "minimum": 0,
+            "title": "Time Seconds",
+            "type": "number"
+          },
+          "position": {
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Position",
+            "type": "array"
+          },
+          "rotation": {
+            "default": [
+              0,
+              0,
+              0
+            ],
+            "maxItems": 3,
+            "minItems": 3,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Rotation",
+            "type": "array"
+          }
+        },
+        "required": [
+          "time_seconds",
+          "position"
+        ],
+        "title": "EntityKeyframe",
+        "type": "object"
+      },
+      "EntityPatch": {
+        "additionalProperties": false,
+        "properties": {
+          "entity_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Position"
+          },
+          "rotation": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Rotation"
+          },
+          "scale": {
+            "anyOf": [
+              {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Scale"
+          },
+          "material": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Material"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "state": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State"
+          }
+        },
+        "required": [
+          "entity_id"
+        ],
+        "title": "EntityPatch",
+        "type": "object"
+      },
+      "EntityTrack": {
+        "additionalProperties": false,
+        "properties": {
+          "entity_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "keyframes": {
+            "items": {
+              "$ref": "#/$defs/EntityKeyframe"
+            },
+            "maxItems": 64,
+            "minItems": 2,
+            "title": "Keyframes",
+            "type": "array"
+          }
+        },
+        "required": [
+          "entity_id",
+          "keyframes"
+        ],
+        "title": "EntityTrack",
+        "type": "object"
+      },
+      "Event": {
+        "additionalProperties": false,
+        "properties": {
+          "seq": {
+            "title": "Seq",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "recorded_at": {
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "run_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Run Id"
+          },
+          "task_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Task Id"
+          },
+          "job_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Job Id"
+          },
+          "payload": {
+            "additionalProperties": true,
+            "title": "Payload",
+            "type": "object"
+          },
+          "artifact_refs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Artifact Refs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "seq",
+          "id",
+          "type",
+          "recorded_at"
+        ],
+        "title": "Event",
+        "type": "object"
+      },
+      "Material": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "default": "#b5aa92",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Color",
+            "type": "string"
+          },
+          "roughness": {
+            "default": 0.5,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Roughness",
+            "type": "number"
+          },
+          "metalness": {
+            "default": 0,
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Metalness",
+            "type": "number"
+          }
+        },
+        "title": "Material",
+        "type": "object"
+      },
+      "MotionPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "const": 1,
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          },
+          "interpolation": {
+            "const": "linear",
+            "default": "linear",
+            "title": "Interpolation",
+            "type": "string"
+          },
+          "camera_keyframes": {
+            "items": {
+              "$ref": "#/$defs/CameraKeyframe"
+            },
+            "maxItems": 64,
+            "minItems": 2,
+            "title": "Camera Keyframes",
+            "type": "array"
+          },
+          "tracks": {
+            "items": {
+              "$ref": "#/$defs/EntityTrack"
+            },
+            "maxItems": 64,
+            "title": "Tracks",
+            "type": "array"
+          }
+        },
+        "required": [
+          "camera_keyframes"
+        ],
+        "title": "MotionPlan",
+        "type": "object"
+      },
+      "Observation": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "take_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Take Id",
+            "type": "string"
+          },
+          "assertion": {
+            "title": "Assertion",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pass",
+              "fail",
+              "unknown"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "time_ms": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Time Ms"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "entity_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Entity Ids",
+            "type": "array"
+          },
+          "method": {
+            "default": "meta-visual-review",
+            "title": "Method",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "take_id",
+          "assertion",
+          "status",
+          "detail"
+        ],
+        "title": "Observation",
+        "type": "object"
+      },
+      "ReferencePin": {
+        "additionalProperties": false,
+        "properties": {
+          "asset_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Asset Id",
+            "type": "string"
+          },
+          "revision_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Revision Id",
+            "type": "string"
+          },
+          "state": {
+            "default": "default",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "State",
+            "type": "string"
+          }
+        },
+        "required": [
+          "asset_id",
+          "revision_id"
+        ],
+        "title": "ReferencePin",
+        "type": "object"
+      },
+      "Room": {
+        "additionalProperties": false,
+        "properties": {
+          "width": {
+            "default": 10,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Width",
+            "type": "number"
+          },
+          "depth": {
+            "default": 6.2,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Depth",
+            "type": "number"
+          },
+          "height": {
+            "default": 3.15,
+            "exclusiveMinimum": 0,
+            "maximum": 30,
+            "title": "Height",
+            "type": "number"
+          },
+          "design": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/RoomDesign"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "title": "Room",
+        "type": "object"
+      },
+      "RoomDesign": {
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "const": 1,
+            "default": 1,
+            "title": "Version",
+            "type": "integer"
+          },
+          "style": {
+            "default": "warm_modern",
+            "enum": [
+              "warm_modern",
+              "minimal",
+              "noir"
+            ],
+            "title": "Style",
+            "type": "string"
+          },
+          "windows": {
+            "items": {
+              "$ref": "#/$defs/WindowOpening"
+            },
+            "maxItems": 4,
+            "title": "Windows",
+            "type": "array"
+          },
+          "door": {
+            "$ref": "#/$defs/DoorOpening"
+          },
+          "surfaces": {
+            "$ref": "#/$defs/SurfacePalette"
+          },
+          "details": {
+            "$ref": "#/$defs/RoomDetails"
+          },
+          "exposure": {
+            "default": 0,
+            "maximum": 4,
+            "minimum": -4,
+            "title": "Exposure",
+            "type": "number"
+          }
+        },
+        "title": "RoomDesign",
+        "type": "object"
+      },
+      "RoomDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "curtains": {
+            "default": true,
+            "title": "Curtains",
+            "type": "boolean"
+          },
+          "sideboard": {
+            "default": true,
+            "title": "Sideboard",
+            "type": "boolean"
+          },
+          "chandelier": {
+            "default": true,
+            "title": "Chandelier",
+            "type": "boolean"
+          }
+        },
+        "title": "RoomDetails",
+        "type": "object"
+      },
+      "SceneRevision": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Parent Id"
+          },
+          "restored_from_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Restored From Id"
+          },
+          "name": {
+            "default": "The Dinner",
+            "title": "Name",
+            "type": "string"
+          },
+          "units": {
+            "const": "meters",
+            "default": "meters",
+            "title": "Units",
+            "type": "string"
+          },
+          "up_axis": {
+            "const": "Z",
+            "default": "Z",
+            "title": "Up Axis",
+            "type": "string"
+          },
+          "entities": {
+            "items": {
+              "$ref": "#/$defs/Entity"
+            },
+            "title": "Entities",
+            "type": "array"
+          },
+          "cameras": {
+            "items": {
+              "$ref": "#/$defs/Camera"
+            },
+            "title": "Cameras",
+            "type": "array"
+          },
+          "room": {
+            "$ref": "#/$defs/Room"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "entities",
+          "cameras"
+        ],
+        "title": "SceneRevision",
+        "type": "object"
+      },
+      "ShotPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Parent Id"
+          },
+          "fps": {
+            "const": 24,
+            "default": 24,
+            "title": "Fps",
+            "type": "integer"
+          },
+          "motion": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/MotionPlan"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "reference_pins": {
+            "items": {
+              "$ref": "#/$defs/ReferencePin"
+            },
+            "maxItems": 30,
+            "title": "Reference Pins",
+            "type": "array"
+          },
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "scene_revision_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Scene Revision Id",
+            "type": "string"
+          },
+          "camera_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Camera Id",
+            "type": "string"
+          },
+          "duration": {
+            "default": 5,
+            "maximum": 30,
+            "minimum": 4,
+            "title": "Duration",
+            "type": "integer"
+          },
+          "action": {
+            "default": "Hold the scene with natural restrained performance.",
+            "maxLength": 12000,
+            "title": "Action",
+            "type": "string"
+          },
+          "assertions": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Assertions",
+            "type": "array"
+          },
+          "proposed_patch": {
+            "items": {
+              "$ref": "#/$defs/EntityPatch"
+            },
+            "title": "Proposed Patch",
+            "type": "array"
+          },
+          "reference_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reference Ids",
+            "type": "array"
+          },
+          "status": {
+            "default": "draft",
+            "title": "Status",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "scene_revision_id",
+          "camera_id"
+        ],
+        "title": "ShotPlan",
+        "type": "object"
+      },
+      "SurfacePalette": {
+        "additionalProperties": false,
+        "properties": {
+          "walls": {
+            "$ref": "#/$defs/Material"
+          },
+          "ceiling": {
+            "$ref": "#/$defs/Material"
+          },
+          "floor": {
+            "$ref": "#/$defs/Material"
+          },
+          "trim": {
+            "$ref": "#/$defs/Material"
+          },
+          "curtains": {
+            "$ref": "#/$defs/Material"
+          }
+        },
+        "title": "SurfacePalette",
+        "type": "object"
+      },
+      "Take": {
+        "additionalProperties": false,
+        "properties": {
+          "proposed_patch": {
+            "items": {
+              "$ref": "#/$defs/EntityPatch"
+            },
+            "title": "Proposed Patch",
+            "type": "array"
+          },
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "shot_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Shot Id",
+            "type": "string"
+          },
+          "scene_revision_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Scene Revision Id",
+            "type": "string"
+          },
+          "package_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Package Id",
+            "type": "string"
+          },
+          "job_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Job Id",
+            "type": "string"
+          },
+          "artifact_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Artifact Id",
+            "type": "string"
+          },
+          "poster_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Poster Id"
+          },
+          "run_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Run Id"
+          },
+          "status": {
+            "default": "unreviewed",
+            "enum": [
+              "unreviewed",
+              "reviewed",
+              "accepted",
+              "rejected"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "shot_id",
+          "scene_revision_id",
+          "package_id",
+          "job_id",
+          "artifact_id"
+        ],
+        "title": "Take",
+        "type": "object"
+      },
+      "WindowOpening": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "center_x": {
+            "title": "Center X",
+            "type": "number"
+          },
+          "width": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 30,
+            "title": "Width",
+            "type": "number"
+          },
+          "sill": {
+            "minimum": 0.1,
+            "title": "Sill",
+            "type": "number"
+          },
+          "height": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 20,
+            "title": "Height",
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "center_x",
+          "width",
+          "sill",
+          "height"
+        ],
+        "title": "WindowOpening",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "reference_assets": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Reference Assets",
+        "type": "array"
+      },
+      "reference_versions": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Reference Versions",
+        "type": "array"
+      },
+      "reference_decisions": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Reference Decisions",
+        "type": "array"
+      },
+      "reference_templates": {
+        "additionalProperties": true,
+        "title": "Reference Templates",
+        "type": "object"
+      },
+      "motion_previews": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Motion Previews",
+        "type": "array"
+      },
+      "reconstructions": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Reconstructions",
+        "type": "array"
+      },
+      "reconstruction_reviews": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Reconstruction Reviews",
+        "type": "array"
+      },
+      "commands": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Commands",
+        "type": "array"
+      },
+      "design_defaults": {
+        "$ref": "#/$defs/RoomDesign"
+      },
+      "undo_target_revision_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Undo Target Revision Id"
+      },
+      "packages": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Packages",
+        "type": "array"
+      },
+      "production": {
+        "additionalProperties": true,
+        "title": "Production",
+        "type": "object"
+      },
+      "scene": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/SceneRevision"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      },
+      "shots": {
+        "items": {
+          "$ref": "#/$defs/ShotPlan"
+        },
+        "title": "Shots",
+        "type": "array"
+      },
+      "runs": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Runs",
+        "type": "array"
+      },
+      "tasks": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Tasks",
+        "type": "array"
+      },
+      "handoffs": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Handoffs",
+        "type": "array"
+      },
+      "jobs": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Jobs",
+        "type": "array"
+      },
+      "artifacts": {
+        "items": {
+          "$ref": "#/$defs/Artifact"
+        },
+        "title": "Artifacts",
+        "type": "array"
+      },
+      "takes": {
+        "items": {
+          "$ref": "#/$defs/Take"
+        },
+        "title": "Takes",
+        "type": "array"
+      },
+      "observations": {
+        "items": {
+          "$ref": "#/$defs/Observation"
+        },
+        "title": "Observations",
+        "type": "array"
+      },
+      "events": {
+        "items": {
+          "$ref": "#/$defs/Event"
+        },
+        "title": "Events",
+        "type": "array"
+      },
+      "budget": {
+        "additionalProperties": true,
+        "title": "Budget",
+        "type": "object"
+      },
+      "models": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Models",
+        "type": "array"
+      },
+      "last_seq": {
+        "default": 0,
+        "title": "Last Seq",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "production"
+    ],
+    "title": "Snapshot",
+    "type": "object"
+  }
+}

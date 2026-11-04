@@ -1,0 +1,16 @@
+import type { Snapshot } from '../../src/api/contracts';
+
+// Test-only records. The application never installs or dispatches this fixture.
+export function terminalFixture(): Snapshot {
+  return {
+    undo_target_revision_id: null, commands: [],
+    production: { id: 'test-production', name: 'Dinner · test fixture', fixture: true, paused: false },
+    scene: { schema_version: '1.0', id: 'scene-current', parent_id: null, restored_from_id: null, name: 'Dinner set', units: 'meters', up_axis: 'Z', entities: [{ id: 'cup', name: 'Ceramic cup', kind: 'prop', position: [0, 0, 1], rotation: [0, 0, 0], scale: [1, 1, 1], dimensions: [0.1, 0.1, 0.2], material: { color: '#eeeeee', roughness: 0.7, metalness: 0 }, asset_id: null, asset_url: null, visible: true }], cameras: [{ id: 'camera-wide', name: 'Wide camera', position: [4, -4, 2], target: [0, 0, 1], focal_length_mm: 35, sensor_width_mm: 36, aspect_ratio: 16 / 9, near: 0.1, far: 100, depth_of_field: false, aperture_fstop: 4, focus_distance_m: null }] },
+    shots: [{ id: 'shot-a', name: 'The arrival', scene_revision_id: 'scene-current', camera_id: 'camera-wide', fps: 24, parent_id: null, motion: null, duration: 4, action: 'Two guests sit at a dinner table.', status: 'ready', proposed_patch: [] }, { id: 'shot-b', name: 'The exchange', scene_revision_id: 'scene-current', camera_id: 'camera-wide', fps: 24, parent_id: null, motion: null, duration: 4, action: 'A guest passes the cup.', status: 'ready', proposed_patch: [] }, { id: 'shot-c', name: 'The response', scene_revision_id: 'scene-current', camera_id: 'camera-wide', fps: 24, parent_id: null, motion: null, duration: 4, action: 'The second guest responds.', status: 'ready', proposed_patch: [] }],
+    takes: [{ id: 'take-a', shot_id: 'shot-a', scene_revision_id: 'scene-source-a', package_id: 'package-a', job_id: 'job-a', artifact_id: 'video-a', poster_id: null, run_id: 'run-a', status: 'unreviewed', proposed_patch: [] }, { id: 'take-b', shot_id: 'shot-b', scene_revision_id: 'scene-current', package_id: 'package-b', job_id: 'job-b', artifact_id: 'video-b', poster_id: null, run_id: 'run-b', status: 'unreviewed', proposed_patch: [] }],
+    artifacts: [{ id: 'video-a', kind: 'video', mime_type: 'video/mp4', sha256: 'a'.repeat(64), bytes: 100, name: 'Take A', relative_path: 'test-a.mp4', metadata: { provider: 'openrouter', model: 'seedance' }, url: '/test-media/a.mp4' }, { id: 'video-b', kind: 'video', mime_type: 'video/mp4', sha256: 'b'.repeat(64), bytes: 100, name: 'Take B', relative_path: 'test-b.mp4', metadata: { provider: 'openrouter', model: 'seedance' }, url: '/test-media/b.mp4' }],
+    jobs: [{ id: 'job-a', status: 'completed', model: 'seedance', provider: 'openrouter' }, { id: 'job-b', status: 'completed', model: 'seedance', provider: 'openrouter' }],
+    tasks: [], handoffs: [], observations: [], events: [], runs: [{ id: 'run-a', status: 'completed', name: 'Recorded test run' }], models: [{ id: 'meta-reasoning', name: 'muse-wonder-1.0', provider: 'meta', status: 'configured' }], last_seq: 0,
+    budget: { ceiling_usd: 300, remaining_usd: 300, categories: { meta: { reported_usd: 0, estimated_usd: 0, reserved_usd: 0, ceiling_usd: 150, remaining_usd: 150 } } },
+  };
+}

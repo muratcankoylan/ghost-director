@@ -1,0 +1,13 @@
+{
+  "release_date": "2026-11-04",
+  "source_repository": "atakoylan125-sketch/studio-os",
+  "source_commit": "ff58c6fb131f0c4cb9447e92e6e36c4a5bbc76f8",
+  "source_access": "The source repository is private; this standalone extraction contains no inherited repository history.",
+  "inventory": "SOURCE-INVENTORY.json records original source-file hashes before public packaging adjustments.",
+  "packaging_adjustments": [
+    "Standalone pytest paths omit the external Studio OS execution suite.",
+    "Public README, contribution, security, architecture, provenance, testing, CI and Git configuration are authored for this distribution.",
+    "Release and specification documents have standalone relative links.",
+    "MIT license text is provided at repository root, with its scoped provenance document retained."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "recorded_date": "2026-11-04",
+  "environment": "Local macOS; separate standalone checkout and virtual environment",
+  "standalone_backend": {"command": "python -m pytest tests/ghost_director", "passed": 316, "skipped": 2, "skip_reason": "Optional integration tests require a separate Studio OS checkout", "warnings": ["Starlette test-client HTTPX deprecation"]},
+  "frontend": {"command": "npm --prefix web test", "passed": 114, "test_files": 13},
+  "web_build": {"command": "npm --prefix web run build", "result": "passed", "warnings": ["Three.js viewport chunk exceeds the Vite size advisory"]},
+  "blender_geometry": {"executable_version": "5.2.3", "checks": 30, "result": "passed", "scope": "East/west doors in authored and technical motion scenes"},
+  "clean_startup": {"bootstrap": "passed", "health_http": 200, "browser": "passed", "paid_calls_enabled": false, "checks": ["Procedural room rendered", "Empty reference registry displayed", "Blender workspace displayed actual empty task/output state", "Single WebGL canvas", "No browser console errors"]},
+  "publication_checks": {"configured_secret_equality": "no findings", "credential_patterns": "no findings", "markdown_relative_links": "passed"},
+  "source_checkout_backend": {"passed": 337},
+  "source_checkout_structural_validator": {"status": "known failures", "broken_links": 5, "scope": "Earlier private dining-room production artifacts absent locally; not shipped here", "registry": "synchronized"},
+  "remote_ci": "See the repository Actions tab for independently recorded results.",
+  "live_media_evidence": "See FRESH-EXPERIMENT.md. Mocked tests and local startup do not establish provider availability or visual quality."
+}

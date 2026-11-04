@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ghost-director"
+version = "0.1.0"
+description = "A traceable directing workspace built on Studio OS"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.118,<1", "pydantic>=2.11,<3", "uvicorn>=0.35,<1", "httpx>=0.28,<1", "pillow>=11", "meta-sam-parser==0.1.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=1"]
+
+[project.scripts]
+ghost-director = "ghost_director.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ghost_director"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/ghost_director"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
