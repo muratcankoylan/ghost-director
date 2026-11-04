@@ -6,6 +6,25 @@ Ghost Director connects photographic references, a navigable Three.js set and a 
 
 Built for the **Meta Global AI Developer Hackathon, Indie developer track**. This is a working prototype and a source release—not a claim of production-ready digital humans, a completed hackathon submission or organizer endorsement. [Event and submission notes](docs/HACKATHON.md) · [Fresh experiment](docs/FRESH-EXPERIMENT.md) · [Architecture](docs/ARCHITECTURE.md)
 
+## See the workspace
+
+[![Actual Ghost Director walkthrough: navigate the world, compare references, inspect Blender and review the production inputs](docs/media/workspace-preview.gif)](docs/media/workspace-walkthrough.mp4)
+
+**A real recording of the application.** This preview plays the full 65-second tour at 4.5× speed. It inspects completed work; the speed does not represent generation latency. [Watch the real-time MP4](docs/media/workspace-walkthrough.mp4) · [Full visual report and gallery](docs/SHOWCASE.md)
+
+| Original character reference | Original prop reference | Original location reference |
+| --- | --- | --- |
+| ![Mara: original Meta-generated front, back and face contact sheet](docs/media/reference-character.png) | ![Original cobalt pitcher photograph](docs/media/reference-prop.png) | ![Original sunlit studio photograph](docs/media/reference-location.png) |
+
+These three new Meta-generated images are the appearance source for **The Conservator** test. The character and prop were reconstructed with hosted Meta SAM 3D; the room was adapted locally. The tour shows the actual planning meshes and recorded review limitations beside these references.
+
+| Actual Blender motion · current test | Generated prop film · earlier test |
+| --- | --- |
+| [![Conservator technical blocking and camera motion](docs/media/conservator-blender-preview.gif)](docs/media/conservator-blender-motion.mp4) | [![Earlier generated amber-bottle video](docs/media/earlier-bottle-preview.gif)](docs/media/earlier-bottle-film.mp4) |
+| **12 seconds.** Real clay render from the shared shot plan. Technical proxies define movement; the original photos define appearance. | **4.04 seconds.** Separate prop-only experiment using a Meta reference and Blender motion. A separate renderer produced the film. Take unaccepted; scene fidelity unverified. |
+
+**The Conservator has no final generated film.** The earlier bottle clip is separate evidence. [Inspect the comparisons, exact inputs and video limitations](docs/SHOWCASE.md). For a presentation with native video controls and chapter navigation, open `docs/showcase/index.html` from a clone/download; GitHub shows the HTML source. No API keys are required to view the report.
+
 ## The production model
 
 ```mermaid
@@ -36,7 +55,7 @@ flowchart LR
 | Production review | Ordered original images, actual clay MP4, compiled prompt, coverage gaps and cost estimate | New paid dispatch requires approval of that exact package |
 | Runtime evidence | Provider jobs, outputs, role prompts, handoffs, revision history and replay | No simulated crew activity or fabricated progress |
 
-The local **Conservator** experiment generated three new photographs and two real SAM 3D meshes for an estimated **$0.07**. The meshes are reviewed and placed for static wide-shot planning, with coarse facial/hand detail and unverified material fidelity explicitly recorded. The shared plan produced a real **12-second Blender motion clip** and a compiled package containing five approved images, that clip and the shot prompt. No final film has been generated. Generated media and private production databases are **not included** in this source repository. [Evidence and limitations](docs/FRESH-EXPERIMENT.md)
+The local **Conservator** experiment generated three new photographs and two real SAM 3D meshes for an estimated **$0.07**. The meshes are reviewed and placed for static wide-shot planning, with coarse facial/hand detail and unverified material fidelity explicitly recorded. The shared plan produced a real **12-second Blender motion clip** and a compiled package containing five approved images, that clip and the shot prompt. No final film has been generated for this scene. Curated documentation images and videos are included; the experiment database, full media bundle and provider payloads are excluded. A fresh installation starts with an empty procedural set. [Evidence and limitations](docs/FRESH-EXPERIMENT.md)
 
 ## Quick start
 
@@ -95,4 +114,4 @@ Most tests use deterministic fixtures or mocked providers; they do not spend mon
 
 ## License and release boundaries
 
-Original Ghost Director application code and original release documentation are **MIT licensed**. This repository contains no Studio OS private history, inherited prompt/persona library, model weights, API keys, production database or generated-media bundle. Dependencies, external guidance and generated media have separate terms. [License](LICENSE) · [Provenance](docs/PROVENANCE.md) · [Local security boundary](SECURITY.md)
+Original Ghost Director application code and original release documentation are **MIT licensed**. This repository contains no Studio OS private history, inherited prompt/persona library, model weights, API keys, production database or full generated-media bundle. Selected documentation media has a [provenance manifest](docs/media/manifest.json). Dependencies, external guidance and generated media have separate terms; inclusion does not grant a new asset license. [License](LICENSE) · [Provenance](docs/PROVENANCE.md) · [Local security boundary](SECURITY.md)

@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "published_at": "2026-11-04",
+  "purpose": "Curated visual documentation; not a production import bundle or final-film quality certification.",
+  "rights": "Original report layout and application code are MIT. Generated media retains applicable provider terms; inclusion grants no new asset license.",
+  "privacy": "No credentials, signed provider URLs, database contents or raw provider payloads are included.",
+  "fresh_final_video_generated": false,
+  "paid_calls_for_report": 0,
+  "files": [
+    {
+      "file": "01-world.png",
+      "bytes": 433420,
+      "sha256": "7c627ff5ce79b752283583ce28824bfa84000b32377c0bb45c6439569e66e1eb",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "02-character-comparison.png",
+      "bytes": 437768,
+      "sha256": "efcbc974c9348d6d27f250b65539949db134c210bef25441cb508e5e88ad8cf0",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "03-prop-comparison.png",
+      "bytes": 395750,
+      "sha256": "d145d8e1ad8257ce306c39b2ec1069ed3a209bb57be0afefafb938f39c7cbe2b",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "04-location-comparison.png",
+      "bytes": 544344,
+      "sha256": "c553b838d59273efacb387801f7bae100d90a3b953eb9e736042ece6a9837725",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "05-blender-motion.png",
+      "bytes": 470347,
+      "sha256": "7783c0708e1d9f95d8414df364dbcbd0a32f46e8d93221c7a87247b1ffcad934",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "06-submission-images.png",
+      "bytes": 515527,
+      "sha256": "28660e742dd40e451d6318249422e5995d2b07ce9f2386f78f4285d0b57fce75",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "07-submission-motion-prompt.png",
+      "bytes": 476293,
+      "sha256": "46cb9ee20b65c0baba2511b3d20e650205b57c9127f0d61fe9b0478de5bf8c85",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application screenshot",
+      "captured_at": "2026-11-04",
+      "transformation": "Unmodified 1680x1050 browser viewport capture; no synthetic UI or progress.",
+      "source": "Local existing Ghost Director application, source commit e98386d5a3155be621c2ab5aad6d9adb3060a14b.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "conservator-blender-motion.mp4",
+      "bytes": 149086,
+      "sha256": "886f3adf32ee0042bf9b0d4c1622102e005c6676f05fcc5887956364e9731091",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "technical Blender motion",
+      "motion_id": "motion-aebba79e64a84220",
+      "artifact_id": "art-5c06304c-d748-43b4-a106-0303d7c75b15",
+      "source": "Corrected 12-second actual Blender subprocess output, camera movement with stationary rigid actor/prop proxies.",
+      "transformation": "Original H.264 MP4 bytes, unchanged.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 640,
+            "height": 360,
+            "avg_frame_rate": "24/1",
+            "nb_frames": "288"
+          }
+        ],
+        "format": {
+          "duration": "12.000000"
+        }
+      }
+    },
+    {
+      "file": "conservator-blender-preview.gif",
+      "bytes": 1602988,
+      "sha256": "104bb675de9b5f09aebb56f4825e4c4243695124de6a80237be455cae80b2cae",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "technical Blender motion",
+      "motion_id": "motion-aebba79e64a84220",
+      "artifact_id": "art-5c06304c-d748-43b4-a106-0303d7c75b15",
+      "source": "Corrected 12-second actual Blender subprocess output, camera movement with stationary rigid actor/prop proxies.",
+      "transformation": "Original MP4 converted to 640px-wide 8fps GIF; real-time 12-second preview.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "gif",
+            "width": 640,
+            "height": 360,
+            "avg_frame_rate": "25/3",
+            "nb_frames": "96"
+          }
+        ],
+        "format": {
+          "duration": "12.010000"
+        }
+      }
+    },
+    {
+      "file": "conservator-motion-poster.png",
+      "bytes": 44378,
+      "sha256": "5b4a310f2bc3159dd0f7a1c7921c13a348198196e82199e4bd9248fd100e9f54",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "technical Blender motion",
+      "motion_id": "motion-aebba79e64a84220",
+      "artifact_id": "art-5c06304c-d748-43b4-a106-0303d7c75b15",
+      "source": "Corrected 12-second actual Blender subprocess output, camera movement with stationary rigid actor/prop proxies.",
+      "transformation": "First frame extracted from the original MP4, no visual retouching.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 640,
+            "height": 360,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "earlier-bottle-film-poster.jpg",
+      "bytes": 34413,
+      "sha256": "a299e21da7e1da38ecf837c00aa172e8d0a7d14518eab9318bc5028cb2350550",
+      "experiment": "Earlier amber-bottle prop-only test, November 3, 2026",
+      "take_id": "take-b25217869f1c45ca",
+      "package_id": "package-c8b280dc113541d7",
+      "status": "Reviewed but unaccepted; eight inherited scene entities missing appearance references.",
+      "limitation": "Separate from The Conservator. Geometry, camera-path adherence and continuous identity stability unverified.",
+      "transformation": "Previously extracted JPEG first frame from the original output MP4, no visual retouching; extension corrected to match JPEG bytes.",
+      "provider": "Meta Image for the original reference; separate video renderer for the film. Exact renderer: bytedance/seedance-2.5/reference-to-video through fal.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "width": 854,
+            "height": 480,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {
+          "duration": "0.040000"
+        }
+      }
+    },
+    {
+      "file": "earlier-bottle-film.mp4",
+      "bytes": 414677,
+      "sha256": "027fd4136a24c6f958d1559c45ada01bd186a12d48e41d6f260718c464c0bb46",
+      "experiment": "Earlier amber-bottle prop-only test, November 3, 2026",
+      "take_id": "take-b25217869f1c45ca",
+      "package_id": "package-c8b280dc113541d7",
+      "status": "Reviewed but unaccepted; eight inherited scene entities missing appearance references.",
+      "limitation": "Separate from The Conservator. Geometry, camera-path adherence and continuous identity stability unverified.",
+      "transformation": "Original provider output bytes, unchanged: 854x480 H.264, 24fps, 97 frames, 4.041667 seconds, silent.",
+      "provider": "Meta Image for the original reference; separate video renderer for the film. Exact renderer: bytedance/seedance-2.5/reference-to-video through fal.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 854,
+            "height": 480,
+            "avg_frame_rate": "24/1",
+            "nb_frames": "97"
+          }
+        ],
+        "format": {
+          "duration": "4.041667"
+        }
+      }
+    },
+    {
+      "file": "earlier-bottle-preview.gif",
+      "bytes": 1083209,
+      "sha256": "c447d6c7d531100547b71e16891e4fe6591a754e49165dc87cd53ced0c36402e",
+      "experiment": "Earlier amber-bottle prop-only test, November 3, 2026",
+      "take_id": "take-b25217869f1c45ca",
+      "package_id": "package-c8b280dc113541d7",
+      "status": "Reviewed but unaccepted; eight inherited scene entities missing appearance references.",
+      "limitation": "Separate from The Conservator. Geometry, camera-path adherence and continuous identity stability unverified.",
+      "transformation": "Original output MP4 converted to 480px-wide 6fps 80-color GIF at real-time speed.",
+      "provider": "Meta Image for the original reference; separate video renderer for the film. Exact renderer: bytedance/seedance-2.5/reference-to-video through fal.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "gif",
+            "width": 480,
+            "height": 270,
+            "avg_frame_rate": "25/4",
+            "nb_frames": "24"
+          }
+        ],
+        "format": {
+          "duration": "4.000000"
+        }
+      }
+    },
+    {
+      "file": "earlier-bottle-reference.png",
+      "bytes": 1850887,
+      "sha256": "f0627bd302741dd05c8affb0e43866ea9f352f587c23b8aa81dfb7ed5f49c5fa",
+      "experiment": "Earlier amber-bottle prop-only test, November 3, 2026",
+      "take_id": "take-b25217869f1c45ca",
+      "package_id": "package-c8b280dc113541d7",
+      "status": "Reviewed but unaccepted; eight inherited scene entities missing appearance references.",
+      "limitation": "Separate from The Conservator. Geometry, camera-path adherence and continuous identity stability unverified.",
+      "transformation": "Original approved prop reference PNG bytes, unchanged.",
+      "provider": "Meta Image for the original reference; separate video renderer for the film. Exact renderer: bytedance/seedance-2.5/reference-to-video through fal.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1920,
+            "height": 1280,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "reference-character.png",
+      "bytes": 3071130,
+      "sha256": "370e0cf606d7425d88b610eaf53ec9d12ecf859ddb798609d899bd107746e82b",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "original generated reference image",
+      "artifact_id": "art-34ffbfc5-c245-4d7b-9b07-b21886a4836c",
+      "approved_revision": "refv-eb0590e1294b4aa4",
+      "provider": "Meta Image",
+      "transformation": "Original PNG bytes; character image is the full source sheet for three cropped appearance views.",
+      "approval": "Host test evaluator approval, not user creative approval.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1920,
+            "height": 1280,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "reference-location.png",
+      "bytes": 2788516,
+      "sha256": "a304ecd24b9ff6403c16795949516517e1e86cf3159baceae8037946d1f2654b",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "original generated reference image",
+      "artifact_id": "art-cfcbaca3-0a73-4611-830a-1e61120fac08",
+      "approved_revision": "refv-3e2580f275064d70",
+      "provider": "Meta Image",
+      "transformation": "Original generated single-view PNG bytes, unchanged.",
+      "approval": "Host test evaluator approval, not user creative approval.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1920,
+            "height": 1280,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "reference-prop.png",
+      "bytes": 1896888,
+      "sha256": "2abe573743c62e0483ca3f3ccc7b0f709155f83d1c94c7ada02b67568c0e77bc",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "original generated reference image",
+      "artifact_id": "art-9212220f-532b-4c50-8cce-e355593d353a",
+      "approved_revision": "refv-a1bb834664e6427f",
+      "provider": "Meta Image",
+      "transformation": "Original generated single-view PNG bytes, unchanged.",
+      "approval": "Host test evaluator approval, not user creative approval.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "png",
+            "width": 1920,
+            "height": 1280,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    {
+      "file": "workspace-preview.gif",
+      "bytes": 2361463,
+      "sha256": "fdcc35269e7b97288e2c1d34b66c41030e681f19d496fd1ae695df0c2a62867f",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application recording",
+      "source_recording_sha256": "c7eba30d20e107feb57660d40461542ae6dbff4c2796ab9bb4ac218a2318f9e1",
+      "captured_at": "2026-11-04",
+      "transformation": "Full recording accelerated 4.5x; 960px wide, 5fps, 96-color GIF. Preview only, not a generation-latency measurement.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "gif",
+            "width": 960,
+            "height": 600,
+            "avg_frame_rate": "5/1",
+            "nb_frames": "72"
+          }
+        ],
+        "format": {
+          "duration": "14.400000"
+        }
+      }
+    },
+    {
+      "file": "workspace-walkthrough.mp4",
+      "bytes": 4710286,
+      "sha256": "2444a55187d7479ccada33b97dc9c76f91ef33fbb6b75e440ad980ee40433bd2",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "application recording",
+      "source_recording_sha256": "c7eba30d20e107feb57660d40461542ae6dbff4c2796ab9bb4ac218a2318f9e1",
+      "captured_at": "2026-11-04",
+      "transformation": "Full 65-second VP8 browser capture transcoded to H.264 CRF18/yuv420p, no audio, no cuts, no speed change; faststart enabled.",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1680,
+            "height": 1050,
+            "avg_frame_rate": "10/1",
+            "nb_frames": "650"
+          }
+        ],
+        "format": {
+          "duration": "65.000000"
+        }
+      }
+    },
+    {
+      "file": "workspace-walkthrough.vtt",
+      "bytes": 684,
+      "sha256": "4ad0570e1dfb725dd4232a878e32e1d929154644f720520cb4082e97e16acc16",
+      "experiment": "The Conservator",
+      "source_scene": "scene-fadbf7b20a754083",
+      "source_shot": "shot-6ecf56621ac74d8c",
+      "kind": "descriptive captions",
+      "source_recording_sha256": "c7eba30d20e107feb57660d40461542ae6dbff4c2796ab9bb4ac218a2318f9e1",
+      "captured_at": "2026-11-04",
+      "transformation": "Authored English workflow descriptions at observed recording chapter times; no speech or synthesized narration."
+    }
+  ]
+}

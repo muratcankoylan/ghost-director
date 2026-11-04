@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual field report from Ghost Director: original Meta references, a navigable 3D set, actual Blender motion and inspectable production inputs.">
+  <title>Ghost Director — A visual production report</title>
+  <style>
+    :root { color-scheme: light; --paper:#f3f0e8; --ink:#222722; --muted:#60665f; --rule:#d4d5ca; --accent:#aa462a; --white:#fffdf8; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:80px; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:inherit; text-underline-offset:4px; }
+    a:hover { color:var(--accent); }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .skip { position:absolute; top:-70px; left:16px; padding:12px; background:var(--white); z-index:20; }
+    .skip:focus { top:12px; }
+    .wrap { width:min(1280px,calc(100% - 80px)); margin:auto; }
+    .masthead { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:23px 0; border-bottom:1px solid var(--rule); }
+    .brand { font-size:13px; font-weight:750; letter-spacing:.07em; text-transform:uppercase; text-decoration:none; }
+    .brand span { display:inline-grid; place-items:center; width:25px; height:25px; margin-right:9px; background:var(--ink); color:var(--paper); border-radius:4px; }
+    nav { display:flex; flex-wrap:wrap; gap:24px; font-size:13px; }
+    nav a { text-decoration:none; }
+    .eyebrow, .tag, .number, .metric dt, .mono { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .eyebrow { margin:0 0 20px; color:var(--accent); font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+    .hero { padding:78px 0 40px; }
+    h1 { margin:0; max-width:1000px; font:500 clamp(48px,6.3vw,88px)/1.04 Georgia,"Times New Roman",serif; letter-spacing:-.055em; }
+    h1 em { color:var(--accent); font-weight:400; }
+    .intro { display:flex; justify-content:space-between; gap:40px; align-items:end; margin:30px 0 0; }
+    .intro p { max-width:670px; margin:0; color:var(--muted); font-size:18px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:11px 18px; border:1px solid var(--ink); background:var(--ink); color:var(--white); text-decoration:none; font-size:13px; white-space:nowrap; }
+    .button:hover { background:var(--accent); border-color:var(--accent); color:white; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; font-size:13px; }
+    .tag { display:inline-block; padding:4px 9px; background:#e9eadf; border:1px solid #d3d6c7; font-size:10px; letter-spacing:.06em; text-transform:uppercase; }
+    .tag.warm { background:#f2e2d8; border-color:#dfbcaa; color:#80361f; }
+    .screen { display:block; width:100%; height:auto; }
+    figure { margin:0; }
+    figcaption { color:var(--muted); font-size:13px; line-height:1.6; margin-top:13px; }
+    .caption-row { display:flex; justify-content:space-between; gap:22px; align-items:start; margin:15px 0 24px; font-size:13px; color:var(--muted); }
+    .caption-row p { margin:0; max-width:780px; }
+    .hero-screen { border:1px solid var(--rule); box-shadow:0 22px 52px #292e2412; }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin:36px 0 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .metric { padding:25px 24px; border-right:1px solid var(--rule); margin:0; }
+    .metric:first-child { padding-left:0; } .metric:last-child { border:0; }
+    .metric dt { font-size:10px; letter-spacing:.06em; color:var(--muted); text-transform:uppercase; }
+    .metric dd { margin:4px 0 0; font:400 34px/1.2 Georgia,serif; }
+    .metric small { display:block; color:var(--muted); font-size:12px; margin-top:7px; }
+    section { padding:68px 0; border-bottom:1px solid var(--rule); }
+    .section-heading { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-bottom:28px; align-items:end; }
+    .section-heading .number { display:block; color:var(--accent); font-size:11px; margin-bottom:14px; letter-spacing:.12em; text-transform:uppercase; }
+    h2 { margin:0; font:500 clamp(29px,3.1vw,43px)/1.15 Georgia,serif; letter-spacing:-.025em; }
+    .section-heading p { margin:0; color:var(--muted); }
+    h3 { margin:8px 0 10px; font-size:20px; line-height:1.3; font-weight:600; letter-spacing:-.015em; }
+    p { margin:0 0 16px; }
+    .small { font-size:13px; color:var(--muted); }
+    .video-shell { border:1px solid var(--rule); background:#1d211f; overflow:hidden; }
+    video { width:100%; height:auto; display:block; background:#1d211f; }
+    .chapters { display:flex; gap:0; flex-wrap:wrap; border:1px solid var(--rule); border-top:0; }
+    .chapters button { flex:1 1 160px; padding:16px; border:0; border-right:1px solid var(--rule); background:transparent; font:inherit; font-size:12px; text-align:left; color:var(--ink); cursor:pointer; }
+    .chapters button:hover, .chapters button[aria-current="true"] { background:#e5e6db; }
+    .chapters span { display:block; font:11px ui-monospace,monospace; color:var(--accent); margin-bottom:3px; }
+    details { margin-top:20px; border:1px solid var(--rule); padding:15px 20px; font-size:13px; }
+    summary { cursor:pointer; font-weight:600; }
+    details ol { padding-left:24px; color:var(--muted); }
+    .reference-grid { display:grid; grid-template-columns:2fr 1fr; gap:22px; }
+    .reference-grid .character { grid-row:span 2; }
+    .reference-grid img { width:100%; height:auto; display:block; border:1px solid var(--rule); }
+    .reference-grid figcaption { margin:9px 0 0; }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--rule); margin-top:30px; }
+    .flow div { position:relative; padding:20px; border-right:1px solid var(--rule); }
+    .flow div:last-child { border:0; }
+    .flow div:not(:last-child)::after { content:'→'; position:absolute; right:-9px; top:27px; background:var(--paper); z-index:1; }
+    .flow strong { display:block; font-size:13px; margin-bottom:6px; }
+    .flow span { display:block; color:var(--muted); font-size:12px; }
+    .feature { display:grid; grid-template-columns:minmax(0,2.5fr) minmax(220px,1fr); gap:32px; margin:35px 0; align-items:center; }
+    .feature img, .duo img { width:100%; height:auto; display:block; border:1px solid var(--rule); }
+    .feature p { color:var(--muted); font-size:14px; }
+    .feature .tag { margin-bottom:10px; }
+    .note { border-left:2px solid var(--accent); padding:12px 18px; background:#ebe6dc; color:#55594f; font-size:13px; }
+    .duo { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .duo figure { min-width:0; }
+    .motion-row { display:grid; grid-template-columns:1.5fr 1fr; gap:32px; align-items:center; margin-top:28px; }
+    .motion-row ul { padding-left:18px; color:var(--muted); font-size:14px; }
+    .motion-row li { margin-bottom:8px; }
+    .legacy { background:#eae7df; margin-top:36px; padding:30px; border:1px solid var(--rule); }
+    .legacy .section-heading { margin-bottom:22px; }
+    .bottle-row { display:grid; grid-template-columns:1fr 1.5fr; gap:24px; align-items:start; }
+    .bottle-row img { max-height:370px; width:100%; object-fit:contain; background:#dfdcd4; }
+    .status { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin:28px 0; }
+    .status ul { padding-left:18px; color:var(--muted); font-size:14px; }
+    .status li { margin-bottom:10px; }
+    footer { padding:32px 0 48px; color:var(--muted); font-size:12px; }
+    .footer-row { display:flex; justify-content:space-between; gap:30px; }
+    footer p { max-width:780px; }
+    @media(max-width:800px) {
+      .wrap { width:calc(100% - 36px); } .masthead { gap:16px; align-items:start; } nav { gap:12px; justify-content:flex-end; }
+      .brand { white-space:nowrap; } .masthead { flex-direction:column; } nav { justify-content:flex-start; }
+      .hero { padding:45px 0 25px; } .intro { flex-direction:column; align-items:start; gap:22px; }
+      .intro p { font-size:16px; } .section-heading { grid-template-columns:1fr; gap:18px; }
+      section { padding:45px 0; } .metrics { grid-template-columns:1fr 1fr; }
+      .metric { padding:20px 16px; } .metric:first-child { padding-left:16px; } .metric:nth-child(2) { border-right:0; }
+      .metric:nth-child(-n+2) { border-bottom:1px solid var(--rule); } .metric dd { font-size:28px; }
+      .feature,.motion-row,.bottle-row { grid-template-columns:1fr; gap:18px; }
+      .reference-grid { grid-template-columns:1fr 1fr; gap:16px; } .reference-grid .character { grid-column:1/-1; grid-row:auto; }
+      .duo,.status { grid-template-columns:1fr; } .caption-row,.footer-row { flex-direction:column; gap:12px; }
+      .flow { grid-template-columns:1fr 1fr; } .flow div { border-bottom:1px solid var(--rule); }
+      .flow div:nth-child(2) { border-right:0; } .flow div:nth-child(2)::after { display:none; }
+      .flow div:nth-child(n+3) { border-bottom:0; } .legacy { padding:20px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print {
+      body { background:white; font-size:11px; } .wrap { width:100%; } .masthead nav,.actions,.chapters,.skip { display:none; }
+      .hero { padding:25px 0; } h1 { font-size:46px; } section { padding:25px 0; }
+      figure,.feature,.motion-row,.metrics { break-inside:avoid; } video { max-height:320px; }
+      .hero-screen { box-shadow:none; } .section-heading { gap:20px; } a { text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to report</a>
+<header class="wrap masthead">
+  <a class="brand" href="https://github.com/muratcankoylan/ghost-director"><span>G</span>Ghost Director</a>
+  <nav aria-label="Report navigation"><a href="#walkthrough">Watch</a><a href="#references">References</a><a href="#compare">Compare</a><a href="#motion">Motion</a><a href="#output">Video</a></nav>
+</header>
+<main id="main" class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Visual field report / 04 November 2026 / Meta hackathon prototype</p>
+    <h1>Keep the look.<br>Direct the <em>movement.</em></h1>
+    <div class="intro"><p>From original photographic references to an inspectable 3D set, a shared shot plan and a real Blender motion clip. One workspace, with the production inputs visible at every step.</p><a class="button" href="#walkthrough">Watch the 65-second tour <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <figure><a href="../media/01-world.png"><img class="screen hero-screen" src="../media/01-world.png" width="1680" height="1050" alt="Actual Ghost Director workspace with Mara and a cobalt pitcher placed in the navigable cream-plaster studio, alongside the production event feed."></a><figcaption class="caption-row"><p><strong>The Conservator.</strong> Actual running application. Original Meta references, two reconstructed static meshes and an authored room. This is the planning world; its pixels are not the final photographic appearance.</p><span class="tag">Captured from the app</span></figcaption></figure>
+  <div class="metrics" aria-label="Observed experiment measurements">
+    <dl class="metric"><dt>Original references</dt><dd>3 images</dd><small>One character sheet, prop and location</small></dl>
+    <dl class="metric"><dt>Reconstructed geometry</dt><dd>2 meshes</dd><small>Actual hosted Meta SAM 3D results</small></dl>
+    <dl class="metric"><dt>Blender motion</dt><dd>12 seconds</dd><small>288 rendered frames at 24 fps</small></dl>
+    <dl class="metric"><dt>Estimated generation spend</dt><dd>$0.07</dd><small>Application estimate, not an invoice</small></dl>
+  </div>
+
+  <section id="walkthrough">
+    <div class="section-heading"><div><span class="number">01 / In the workspace</span><h2>See the whole workflow.</h2></div><p>A real-time screen recording of the existing production. Navigate the set, inspect reference comparisons, play the Blender output and review the exact prepared request.</p></div>
+    <div class="video-shell"><video id="tour" controls playsinline preload="metadata" poster="../media/01-world.png" aria-label="65-second silent walkthrough of Ghost Director" aria-describedby="tour-caption"><source src="../media/workspace-walkthrough.mp4" type="video/mp4"><track kind="captions" src="../media/workspace-walkthrough.vtt" srclang="en" label="Workflow descriptions">Your browser does not support this video. <a href="../media/workspace-walkthrough.mp4">Download the recording</a>.</video></div>
+    <div class="chapters" aria-label="Jump to a walkthrough chapter">
+      <button data-time="0"><span>00:00</span>Navigate the world</button><button data-time="6.01"><span>00:06</span>Character review</button><button data-time="14.01"><span>00:14</span>Prop review</button><button data-time="22.01"><span>00:22</span>Location comparison</button><button data-time="30"><span>00:30</span>Blender playback</button><button data-time="45.01"><span>00:45</span>Original inputs</button><button data-time="55"><span>00:55</span>Motion and prompt</button>
+    </div>
+    <div class="caption-row" id="tour-caption"><p>65 seconds · real time · silent · 1680 × 1050. No synthetic task activity or staged progress. The event feed shows recorded work; no crew tasks are running in this capture. Video generation remains unapproved.</p><a href="../media/workspace-walkthrough.mp4" download>Download MP4 ↗</a></div>
+    <details><summary>Read the walkthrough transcript</summary><ol><li><strong>00:00–00:06.</strong> The saved production world shows Mara and the pitcher. A short orbit changes the view without changing scene state.</li><li><strong>00:06–00:14.</strong> The character reference manager opens the isolated mesh comparison. Three photographic views and the recorded planning-only review remain visible.</li><li><strong>00:14–00:22.</strong> The prop comparison shows the reconstructed pitcher's shape, opening and handle beside its approved product image.</li><li><strong>00:22–00:30.</strong> The location comparison places the original room photograph beside the authored set and its remaining mismatch notes.</li><li><strong>00:30–00:45.</strong> The Blender panel plays the actual motion render. The editable scene and validation receipt are accessible.</li><li><strong>00:45–00:55.</strong> Submission review shows the five pinned original appearance images: character front, back and face, prop, and location.</li><li><strong>00:55–01:05.</strong> The prepared request shows the actual motion MP4, exact compiled prompt and future cost estimate. Approval stays unchecked; no final video is dispatched.</li></ol></details>
+  </section>
+
+  <section id="references">
+    <div class="section-heading"><div><span class="number">02 / Appearance authority</span><h2>The photograph comes first.</h2></div><p>Three newly generated sources, created specifically for this isolated experiment. These images define the intended appearance; the reconstructed world supports spatial planning.</p></div>
+    <div class="reference-grid">
+      <figure class="character"><a href="../media/reference-character.png"><img src="../media/reference-character.png" loading="lazy" width="1920" height="1280" alt="Original Meta-generated contact sheet of fictional conservator Mara in terracotta workwear: front, back and face views."></a><figcaption><strong>Mara / Character.</strong> One coherent contact sheet supplies three views. The front view conditions reconstruction; the back and face remain review and final-video appearance references.</figcaption></figure>
+      <figure><a href="../media/reference-prop.png"><img src="../media/reference-prop.png" loading="lazy" width="1920" height="1280" alt="Original photographic reference of a matte cobalt-blue pitcher, showing its opening, spout and curved handle."></a><figcaption><strong>Cobalt pitcher / Prop.</strong> An original opaque ceramic object with a readable silhouette.</figcaption></figure>
+      <figure><a href="../media/reference-location.png"><img src="../media/reference-location.png" loading="lazy" width="1920" height="1280" alt="Original location photograph of a warm cream-plaster studio with a window and right-wall door."></a><figcaption><strong>Sunlit studio / Location.</strong> A master image guides local room authoring.</figcaption></figure>
+    </div>
+    <div class="flow" aria-label="Production workflow"><div><strong>01 · Approve the look</strong><span>Versioned photographic references</span></div><div><strong>02 · Inspect the set</strong><span>Reviewed geometry and scene state</span></div><div><strong>03 · Plan the movement</strong><span>Shared shot and actual Blender output</span></div><div><strong>04 · Review the request</strong><span>Original photos + motion + prompt</span></div></div>
+    <p class="small" style="margin-top:18px">Reference approval and mesh acceptance in this test were recorded by the host evaluator, not by the user as creative director. The fictional character is generated; it is not a photograph of a real performer.</p>
+  </section>
+
+  <section id="compare">
+    <div class="section-heading"><div><span class="number">03 / Reference to geometry</span><h2>Make the differences visible.</h2></div><p>Actual image-to-3D outputs are inspected inside the app. Each review keeps geometry, proportions, materials, colors and identity separate so planning acceptance does not imply photographic fidelity.</p></div>
+    <article class="feature"><a href="../media/02-character-comparison.png"><img src="../media/02-character-comparison.png" loading="lazy" width="1680" height="1050" alt="Mara's actual textured 3D reconstruction beside front, back and face reference images and the persisted planning-only review."></a><div><span class="tag">Meta SAM 3D</span><h3>A character you can frame.</h3><p>The reconstructed silhouette and workwear provide a usable static wide-shot planning asset, normalized to an authored height of 1.72 m.</p><p class="note">Face detail is coarse; fingers are fused or insufficiently separated. Exact likeness, articulated acting and hand contact are not established.</p><a class="small" href="../media/02-character-comparison.png">Inspect full-size capture ↗</a></div></article>
+    <article class="feature"><a href="../media/03-prop-comparison.png"><img src="../media/03-prop-comparison.png" loading="lazy" width="1680" height="1050" alt="Actual cobalt pitcher mesh compared with its source photo, including its open mouth and continuous handle."></a><div><span class="tag">Meta SAM 3D</span><h3>A prop with spatial presence.</h3><p>The rounded body, open mouth, lip and handle are present in the returned mesh. Placement uses an authored height of 0.32 m.</p><p class="note">Hidden surfaces and interior thickness remain unverified. Lighting changes the perceived color; material fidelity and pouring are not claimed.</p><a class="small" href="../media/03-prop-comparison.png">Inspect full-size capture ↗</a></div></article>
+    <article class="feature"><a href="../media/04-location-comparison.png"><img src="../media/04-location-comparison.png" loading="lazy" width="1680" height="1050" alt="Navigable authored room beside the photographic location master and explicit architecture mismatch notes."></a><div><span class="tag warm">Locally authored room</span><h3>A set you can navigate.</h3><p>The existing editor adapts the room to the approved reference: warm cream surfaces, a north window and an east-wall door.</p><p class="note">This is reference-guided architecture, not automatic room reconstruction. Dimensions, plaster grain, floor seams, window detail and sunlight remain approximate.</p><a class="small" href="../media/04-location-comparison.png">Inspect full-size capture ↗</a></div></article>
+  </section>
+
+  <section id="motion">
+    <div class="section-heading"><div><span class="number">04 / Camera and blocking</span><h2>Real Blender. Visible output.</h2></div><p>The working subprocess integration renders a minimal technical scene from the shared shot plan. The interface exposes task status, the editable scene, the output clip and validation evidence.</p></div>
+    <figure><a href="../media/05-blender-motion.png"><img class="screen" src="../media/05-blender-motion.png" loading="lazy" width="1680" height="1050" alt="Ghost Director's Blender panel showing the actual rendered motion clip and controls to download the scene and inspect its receipt."></a><figcaption>The actual Blender workspace in the application. The current integration runs local subprocesses; Blender MCP is not implemented.</figcaption></figure>
+    <div class="motion-row"><figure><div class="video-shell"><video controls playsinline preload="metadata" poster="../media/conservator-motion-poster.png" aria-label="12-second actual Blender camera and blocking reference"><source src="../media/conservator-blender-motion.mp4" type="video/mp4"><a href="../media/conservator-blender-motion.mp4">Download the Blender motion clip</a></video></div><figcaption><strong>Technical motion reference.</strong> Actual 12-second render at 640 × 360 and 24 fps. The simple actor and prop proxies communicate blocking; they do not represent final appearance.</figcaption></figure><div><h3>One plan, a measurable result.</h3><ul><li>One slow camera approach; actor and prop stay stationary.</li><li>The initial cropped-prop composition was corrected and rerendered.</li><li>4,624 projected-corner checks tested framing margins.</li><li>Sampled Blender channel error: 1.19 × 10<sup>−7</sup>, below the 10<sup>−4</sup> tolerance.</li></ul><a class="button" href="../media/conservator-blender-motion.mp4" download>Download the motion reference ↗</a></div></div>
+  </section>
+
+  <section id="request">
+    <div class="section-heading"><div><span class="number">05 / Exact production inputs</span><h2>Inspect before dispatch.</h2></div><p>The prepared package binds five original photographic views, the actual Blender motion clip and the compiled shot prompt. The package is ready for review; it has not been approved or sent.</p></div>
+    <div class="duo"><figure><a href="../media/06-submission-images.png"><img src="../media/06-submission-images.png" loading="lazy" width="1680" height="1050" alt="Production review with the ordered original character, prop and location photographs."></a><figcaption><strong>Appearance inputs.</strong> Five pinned original views with zero missing appearance bindings. Coverage is a lineage check, not proof of final-film fidelity.</figcaption></figure><figure><a href="../media/07-submission-motion-prompt.png"><img src="../media/07-submission-motion-prompt.png" loading="lazy" width="1680" height="1050" alt="Production review showing the actual motion clip, exact compiled prompt, estimated cost and unchecked generation approval."></a><figcaption><strong>Motion and instructions.</strong> The real MP4, compiled prompt and future price estimate are visible. The authorization control remains unchecked.</figcaption></figure></div>
+  </section>
+
+  <section id="output">
+    <div class="section-heading"><div><span class="number">06 / Generated-video evidence</span><h2>An earlier output, in context.</h2></div><p>The new Conservator experiment stops at the prepared production request. This separate, earlier prop experiment demonstrates that an approved image and an actual Blender motion clip reached the video-generation path.</p></div>
+    <div class="legacy"><div class="section-heading"><div><span class="tag warm">Earlier experiment / 03 November</span><h3>Amber bottle · reference plus motion</h3></div><p class="small">Meta produced the photographic reference. A separate video renderer produced this clip. It is not a final film from the Conservator scene.</p></div><div class="bottle-row"><figure><a href="../media/earlier-bottle-reference.png"><img src="../media/earlier-bottle-reference.png" loading="lazy" alt="Earlier approved generated photograph of an unbranded amber bottle."></a><figcaption>Original approved prop image. Approval was recorded by the build evaluator for the test.</figcaption></figure><figure><div class="video-shell"><video controls playsinline preload="metadata" poster="../media/earlier-bottle-film-poster.jpg" aria-label="Earlier 4-second generated amber bottle video, separate from the Conservator"><source src="../media/earlier-bottle-film.mp4" type="video/mp4"><a href="../media/earlier-bottle-film.mp4">Download the earlier video</a></video></div><figcaption>Actual provider output · 4.04 seconds · 854 × 480 · 24 fps · silent. The published MP4 is byte-identical to the recorded output.</figcaption></figure></div><p class="note" style="margin-top:22px">The take remains unaccepted. Only the bottle had an approved appearance reference; the inherited room and furnishings had eight coverage warnings. Exact geometry, camera-path fidelity and continuous identity stability remain unverified.</p><a class="small" href="../media/earlier-bottle-film.mp4" download>Download the earlier generated clip ↗</a></div>
+  </section>
+
+  <section id="status">
+    <div class="section-heading"><div><span class="number">07 / Current boundary</span><h2>Evidence you can inspect.</h2></div><p>The report captures a working prototype and its observable limits. Media is selected from actual runs; no API requests were made to create this report.</p></div>
+    <div class="status"><div><h3>Working in the captured application</h3><ul><li>Original reference images, version pins and approval records.</li><li>Actual reconstructed meshes, visible comparisons and planning reviews.</li><li>Navigable set, shared shot plan and real Blender render access.</li><li>Inspectable image, motion and prompt inputs before generation.</li></ul></div><div><h3>Still unresolved</h3><ul><li>Close-up character likeness, rigging, acting and hand contact.</li><li>Calibrated materials, unseen geometry and automatic room reconstruction.</li><li>A final Conservator film and evaluated cross-shot continuity.</li><li>Production readiness and complete creative approval.</li></ul></div></div>
+    <div class="actions"><a class="button" href="https://github.com/muratcankoylan/ghost-director">Explore the open-source project ↗</a><a href="https://github.com/muratcankoylan/ghost-director/blob/main/docs/FRESH-EXPERIMENT.md">Detailed experiment record</a><a href="../media/manifest.json">Media provenance and hashes</a></div>
+  </section>
+</main>
+<footer class="wrap"><div class="footer-row"><p><strong>Ghost Director</strong> · Meta Global AI Developer Hackathon, Indie developer track.<br>Original application code and report layout are MIT licensed. Generated media retains applicable provider terms; inclusion does not grant a new asset license. This report is not an organizer endorsement or a completed submission.</p><a href="https://github.com/muratcankoylan/ghost-director/blob/main/docs/PROVENANCE.md">Source and media provenance ↗</a></div></footer>
+<script>
+  const tour = document.getElementById('tour');
+  const chapters = Array.from(document.querySelectorAll('[data-time]'));
+  chapters.forEach(button => button.addEventListener('click', () => {
+    tour.currentTime = Number(button.dataset.time);
+    tour.focus();
+    tour.play().catch(() => { /* Native controls remain available if playback is blocked. */ });
+  }));
+  tour.addEventListener('timeupdate', () => {
+    let active = chapters[0];
+    for (const chapter of chapters) if (Number(chapter.dataset.time) <= tour.currentTime) active = chapter;
+    chapters.forEach(chapter => chapter.setAttribute('aria-current', String(chapter === active)));
+  });
+</script>
+</body>
+</html>

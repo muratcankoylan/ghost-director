@@ -1,5 +1,7 @@
 # The Conservator: fresh reference experiment
 
+[View the illustrated report and screen recording](SHOWCASE.md) for current comparisons, Blender playback and production review.
+
 Initial publication checkpoint: **November 3, 2026, 11:46 PM America/Toronto**. The sections through Known limits preserve that observation; the dated follow-up below records subsequent local work. The existing Ghost Director application and other productions were preserved.
 
 ## What was actually generated
@@ -44,7 +46,7 @@ The browser contains these workflows; this record does not claim that every step
 
 ## Reproduce without importing private production data
 
-Follow [installation](../README.md#quick-start) first. A source checkout does not contain generated media, the experiment database or paid-provider receipts. With a configured local Blender executable, initialization is local and does not require model credentials:
+Follow [installation](../README.md#quick-start) first. The checkout includes selected documentation images and videos, but not the experiment database, complete generated assets or paid-provider receipts. Its visual report does not populate the application's production state. With a configured local Blender executable, initialization is local and does not require model credentials:
 
 ```sh
 uv run python tools/new_reference_example.py --env-file .env.local init
