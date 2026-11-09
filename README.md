@@ -86,9 +86,7 @@ Keys are server-side in ignored `.env.local`; never put them in frontend variabl
 
 | Variable | Purpose |
 | --- | --- |
-| `MODEL_API_KEY` | Meta reasoning, image generation and segmentation |
-| `FAL_KEY` | Hosted Meta SAM 3D Objects and the supported image-plus-motion video route |
-| `OPENROUTER_API_KEY` | Optional validated legacy video routes |
+| `MODEL_API_KEY` | Meta reasoning, Meta SAM 3D Objects, image generation and segmentation |
 | `STUDIO_ALLOW_LIVE_CALLS` | Explicit local switch for paid requests; default `0` |
 | `GHOST_BLENDER` | Blender executable path |
 | `GHOST_PRODUCTION_ROOT` | Optional isolated local production directory |
